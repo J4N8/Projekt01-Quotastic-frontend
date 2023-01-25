@@ -11,7 +11,7 @@ import {RegisterUserFields, useRegisterForm} from "../../hooks/react-hook-form/u
 
 const RegisterForm: FC = () => {
 	const navigate = useNavigate();
-	const {handleSubmit, errors, control, reset} = useRegisterForm();
+	const {handleSubmit, errors, control} = useRegisterForm();
 	const [apiError, setApiError] = useState("");
 	const [showError, setShowError] = useState(false);
 
