@@ -24,7 +24,7 @@ const LoginForm: FC = () => {
 			setShowError(true);
 		} else {
 			authStore.login(response.data);
-			navigate("/");
+			navigate(routes.HOME);
 		}
 	});
 

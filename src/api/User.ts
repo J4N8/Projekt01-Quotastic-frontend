@@ -16,3 +16,5 @@ export const register = async (data: RegisterUserFields) =>
 
 export const uploadAvatar = async (formData: FormData, id: string) =>
 	apiRequest<FormData, void>("post", `${apiRoutes.UPLOAD_AVATAR_IMAGE}/${id}`, formData);
+
+export const refreshTokens = async () => apiRequest<undefined, UserType>("get", apiRoutes.REFRESH_TOKENS);
