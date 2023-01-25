@@ -8,6 +8,7 @@ import {StatusCode} from "../../constants/errorConstants";
 import authStore from "../../stores/auth.store";
 import Avatar from "react-avatar";
 import {RegisterUserFields, useRegisterForm} from "../../hooks/react-hook-form/useRegister";
+import {observer} from "mobx-react";
 
 const RegisterForm: FC = () => {
 	const navigate = useNavigate();
@@ -233,4 +234,4 @@ const RegisterForm: FC = () => {
 	);
 };
 
-export default RegisterForm;
+export default observer(RegisterForm);
