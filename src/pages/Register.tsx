@@ -1,11 +1,11 @@
 import React, {FC} from "react";
 import Layout from "../components/ui/Layout";
+import RegisterForm from "../components/user/RegisterForm";
 
 const Register: FC = () => {
 	return (
 		<Layout>
-			{/*<RegisterForm />*/}
-			Register
+			<RegisterForm />
 		</Layout>
 	);
 };
