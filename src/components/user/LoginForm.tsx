@@ -1,12 +1,16 @@
-import React, {FC, useState} from "react";
+import {LoginUserFields, useLoginForm} from "hooks/react-hook-form/useLogin";
+import {FC, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
-import {LoginUserFields, useLoginForm} from "../../hooks/react-hook-form/useLogin";
-import {Button, Form, FormLabel, Toast, ToastContainer} from "react-bootstrap";
+import ToastContainer from "react-bootstrap/ToastContainer";
+import Toast from "react-bootstrap/Toast";
+import {Form} from "react-bootstrap";
 import {Controller} from "react-hook-form";
-import {routes} from "../../constants/routesConstants";
+import FormLabel from "react-bootstrap/FormLabel";
+import {routes} from "constants/routesConstants";
+import Button from "react-bootstrap/Button";
 import * as API from "api/Api";
-import {StatusCode} from "../../constants/errorConstants";
-import authStore from "../../stores/auth.store";
+import {StatusCode} from "constants/errorConstants";
+import authStore from "stores/auth.store";
 import {observer} from "mobx-react";
 
 const LoginForm: FC = () => {
@@ -55,7 +59,7 @@ const LoginForm: FC = () => {
 					name="password"
 					render={({field}) => (
 						<Form.Group className="mb-3">
-							<FormLabel htmlFor="password">Email</FormLabel>
+							<FormLabel htmlFor="password">Password</FormLabel>
 							<input
 								{...field}
 								type="password"
@@ -80,7 +84,6 @@ const LoginForm: FC = () => {
 					Login
 				</Button>
 			</Form>
-
 			{showError && (
 				<ToastContainer className="p-3" position="top-end">
 					<Toast onClose={() => setShowError(false)} show={showError}>

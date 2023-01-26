@@ -1,13 +1,17 @@
-import React, {ChangeEvent, FC, useEffect, useState} from "react";
+import {RegisterUserFields, useRegisterForm} from "hooks/react-hook-form/useRegister";
+import {ChangeEvent, FC, useEffect, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
-import {Button, Form, FormLabel, Toast, ToastContainer} from "react-bootstrap";
+import ToastContainer from "react-bootstrap/ToastContainer";
+import Toast from "react-bootstrap/Toast";
+import {Form} from "react-bootstrap";
 import {Controller} from "react-hook-form";
-import {routes} from "../../constants/routesConstants";
+import FormLabel from "react-bootstrap/FormLabel";
+import {routes} from "constants/routesConstants";
+import Button from "react-bootstrap/Button";
 import * as API from "api/Api";
-import {StatusCode} from "../../constants/errorConstants";
-import authStore from "../../stores/auth.store";
+import {StatusCode} from "constants/errorConstants";
+import authStore from "stores/auth.store";
 import Avatar from "react-avatar";
-import {RegisterUserFields, useRegisterForm} from "../../hooks/react-hook-form/useRegister";
 import {observer} from "mobx-react";
 
 const RegisterForm: FC = () => {
@@ -138,7 +142,7 @@ const RegisterForm: FC = () => {
 					name="last_name"
 					render={({field}) => (
 						<Form.Group className="mb-3">
-							<FormLabel htmlFor="last_name">First name</FormLabel>
+							<FormLabel htmlFor="last_name">Last name</FormLabel>
 							<input
 								{...field}
 								type="text"
@@ -210,7 +214,7 @@ const RegisterForm: FC = () => {
 					)}
 				/>
 				<div className="d-flex justify-content-between align-items-center mb-2">
-					<p className="mb-0">Already have an account</p>
+					<p className="mb-0">Already have an account?</p>
 					<Link className="text-decoration-none text-end" to={routes.LOGIN}>
 						Login
 					</Link>
@@ -219,7 +223,6 @@ const RegisterForm: FC = () => {
 					Create account
 				</Button>
 			</Form>
-
 			{showError && (
 				<ToastContainer className="p-3" position="top-end">
 					<Toast onClose={() => setShowError(false)} show={showError}>

@@ -1,6 +1,6 @@
-import * as Yup from "yup";
-import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
+import {useForm} from "react-hook-form";
+import * as Yup from "yup";
 
 export interface RegisterUserFields {
 	first_name?: string;
@@ -22,8 +22,8 @@ export const useRegisterForm = () => {
 			)
 			.required(),
 		confirm_password: Yup.string()
-			.oneOf([Yup.ref("password"), null], "Passwords don't match")
-			.required("Passwords don't match"),
+			.oneOf([Yup.ref("password"), null], "Passwords do not match")
+			.required("Passwords do not match"),
 	});
 
 	const {
