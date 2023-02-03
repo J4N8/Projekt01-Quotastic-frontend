@@ -120,44 +120,6 @@ const RegisterForm: FC = () => {
 				</Form.Group>
 				<Controller
 					control={control}
-					name="first_name"
-					render={({field}) => (
-						<Form.Group className="mb-3">
-							<FormLabel htmlFor="first_name">First name</FormLabel>
-							<input
-								{...field}
-								type="text"
-								aria-label="First name"
-								aria-describedby="first_name"
-								className={errors.first_name ? "form-control is-invalid" : "form-control"}
-							/>
-							{errors.first_name && (
-								<div className="invalid-feedback text-danger">{errors.first_name.message}</div>
-							)}
-						</Form.Group>
-					)}
-				/>
-				<Controller
-					control={control}
-					name="last_name"
-					render={({field}) => (
-						<Form.Group className="mb-3">
-							<FormLabel htmlFor="last_name">Last name</FormLabel>
-							<input
-								{...field}
-								type="text"
-								aria-label="Last name"
-								aria-describedby="last_name"
-								className={errors.last_name ? "form-control is-invalid" : "form-control"}
-							/>
-							{errors.last_name && (
-								<div className="invalid-feedback text-danger">{errors.last_name.message}</div>
-							)}
-						</Form.Group>
-					)}
-				/>
-				<Controller
-					control={control}
 					name="email"
 					render={({field}) => (
 						<Form.Group className="mb-3">
@@ -174,6 +136,46 @@ const RegisterForm: FC = () => {
 						</Form.Group>
 					)}
 				/>
+				<div className="d-flex justify-content-center align-items-center">
+					<Controller
+						control={control}
+						name="first_name"
+						render={({field}) => (
+							<Form.Group className="mb-3">
+								<FormLabel htmlFor="first_name">First name</FormLabel>
+								<input
+									{...field}
+									type="text"
+									aria-label="First name"
+									aria-describedby="first_name"
+									className={errors.first_name ? "form-control is-invalid" : "form-control"}
+								/>
+								{errors.first_name && (
+									<div className="invalid-feedback text-danger">{errors.first_name.message}</div>
+								)}
+							</Form.Group>
+						)}
+					/>
+					<Controller
+						control={control}
+						name="last_name"
+						render={({field}) => (
+							<Form.Group className="mb-3">
+								<FormLabel htmlFor="last_name">Last name</FormLabel>
+								<input
+									{...field}
+									type="text"
+									aria-label="Last name"
+									aria-describedby="last_name"
+									className={errors.last_name ? "form-control is-invalid" : "form-control"}
+								/>
+								{errors.last_name && (
+									<div className="invalid-feedback text-danger">{errors.last_name.message}</div>
+								)}
+							</Form.Group>
+						)}
+					/>
+				</div>
 				<Controller
 					control={control}
 					name="password"
