@@ -1,20 +1,17 @@
 import {apiRoutes} from "constants/apiConstants";
-import {CreateUpdateProductFields} from "hooks/react-hook-form/useCreateUpdateProduct";
-import {ProductType} from "models/product";
+import {CreateUpdateQuoteFields} from "hooks/react-hook-form/useCreateUpdateQuote";
+import {QuoteType} from "models/quote";
 
 import {apiRequest} from "./Api";
 
-export const fetchProducts = async (pageNumber: number) =>
-	apiRequest<undefined, ProductType[]>("get", `${apiRoutes.PRODUCTS_PREFIX}?page=${pageNumber}`);
+export const fetchQuotes = async (pageNumber: number) =>
+	apiRequest<undefined, QuoteType[]>("get", `${apiRoutes.QUOTES_PREFIX}?page=${pageNumber}`);
 
-export const createProduct = async (data: CreateUpdateProductFields) =>
-	apiRequest<CreateUpdateProductFields, ProductType>("post", apiRoutes.PRODUCTS_PREFIX, data);
+export const createQuote = async (data: CreateUpdateQuoteFields) =>
+	apiRequest<CreateUpdateQuoteFields, QuoteType>("post", apiRoutes.QUOTES_PREFIX, data);
 
-export const uploadProductImage = async (formData: FormData, id: string) =>
-	apiRequest<FormData, void>("post", `${apiRoutes.UPLOAD_PRODUCT_IMAGE}/${id}`, formData);
+export const updateQuote = async (data: CreateUpdateQuoteFields, id: string) =>
+	apiRequest<CreateUpdateQuoteFields, QuoteType>("patch", `${apiRoutes.QUOTES_PREFIX}/${id}`, data);
 
-export const updateProduct = async (data: CreateUpdateProductFields, id: string) =>
-	apiRequest<CreateUpdateProductFields, ProductType>("patch", `${apiRoutes.PRODUCTS_PREFIX}/${id}`, data);
-
-export const deleteProduct = async (id: string) =>
-	apiRequest<string, ProductType>("delete", `${apiRoutes.PRODUCTS_PREFIX}/${id}`);
+export const deleteQuote = async (id: string) =>
+	apiRequest<string, QuoteType>("delete", `${apiRoutes.QUOTES_PREFIX}/${id}`);

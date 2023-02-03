@@ -25,6 +25,4 @@ export async function apiRequest<D = Record<string, unknown>, R = unknown>(
 }
 
 export * from "./User";
-export * from "./Role";
 export * from "./Product";
-export * from "./Order";

@@ -14,8 +14,6 @@ import authStore from "stores/auth.store";
 import Avatar from "react-avatar";
 import {observer} from "mobx-react";
 import {UserType} from "models/auth";
-import {useQuery} from "react-query";
-import {RoleType} from "models/role";
 
 interface Props {
 	defaultValues?: UserType & {isActiveUser?: boolean};
@@ -26,7 +24,6 @@ const CreateUpdateUserForm: FC<Props> = ({defaultValues}) => {
 	const {handleSubmit, errors, control} = useCreateUpdateUserForm({
 		defaultValues,
 	});
-	const {data: rolesData} = useQuery(["roles"], API.fetchRoles);
 	const [apiError, setApiError] = useState("");
 	const [showError, setShowError] = useState(false);
 
@@ -60,7 +57,7 @@ const CreateUpdateUserForm: FC<Props> = ({defaultValues}) => {
 				setApiError(fileResponse.data.message);
 				setShowError(true);
 			} else {
-				navigate(`${routes.DASHBOARD_PREFIX}/users`);
+				navigate(`${routes.DASHBOARD_PREFIX}`);
 			}
 		}
 	};
@@ -78,7 +75,7 @@ const CreateUpdateUserForm: FC<Props> = ({defaultValues}) => {
 				if (defaultValues?.isActiveUser) {
 					authStore.login(response.data);
 				}
-				navigate(`${routes.DASHBOARD_PREFIX}/users`);
+				navigate(`${routes.DASHBOARD_PREFIX}`);
 				return;
 			}
 			// Upload avatar
@@ -102,7 +99,7 @@ const CreateUpdateUserForm: FC<Props> = ({defaultValues}) => {
 						authStore.login(userResponse.data);
 					}
 				}
-				navigate(`${routes.DASHBOARD_PREFIX}/users`);
+				navigate(`${routes.DASHBOARD_PREFIX}`);
 			}
 		}
 	};
@@ -231,11 +228,6 @@ const CreateUpdateUserForm: FC<Props> = ({defaultValues}) => {
 								aria-describedby="role_id"
 							>
 								<option></option>
-								{rolesData?.data.map((role: RoleType, index: number) => (
-									<option key={index} value={role.id}>
-										{role.name}
-									</option>
-								))}
 							</Form.Select>
 							{errors.role_id && (
 								<div className="invalid-feedback text-danger">{errors.role_id.message}</div>
