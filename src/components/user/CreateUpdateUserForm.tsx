@@ -57,7 +57,7 @@ const CreateUpdateUserForm: FC<Props> = ({defaultValues}) => {
 				setApiError(fileResponse.data.message);
 				setShowError(true);
 			} else {
-				navigate(`${routes.DASHBOARD_PREFIX}`);
+				navigate(`${routes.HOME}`);
 			}
 		}
 	};
@@ -75,7 +75,7 @@ const CreateUpdateUserForm: FC<Props> = ({defaultValues}) => {
 				if (defaultValues?.isActiveUser) {
 					authStore.login(response.data);
 				}
-				navigate(`${routes.DASHBOARD_PREFIX}`);
+				navigate(`${routes.HOME}`);
 				return;
 			}
 			// Upload avatar
@@ -99,7 +99,7 @@ const CreateUpdateUserForm: FC<Props> = ({defaultValues}) => {
 						authStore.login(userResponse.data);
 					}
 				}
-				navigate(`${routes.DASHBOARD_PREFIX}`);
+				navigate(`${routes.HOME}`);
 			}
 		}
 	};

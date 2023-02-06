@@ -15,15 +15,15 @@ interface ISidebarItem {
 const sidebarItems: ISidebarItem[] = [
 	{
 		title: "Dashboard",
-		href: routes.DASHBOARD_PREFIX,
+		href: routes.HOME,
 	},
 	{
 		title: "Users",
-		href: `${routes.DASHBOARD_PREFIX}/users`,
+		href: `${routes.HOME}/users`,
 	},
 	{
 		title: "Quotes",
-		href: `${routes.DASHBOARD_PREFIX}/quotes`,
+		href: `${routes.HOME}/quotes`,
 	},
 ];
 

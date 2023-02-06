@@ -55,8 +55,8 @@ const Navbar: FC = () => {
 									</NavLink>
 								</li>
 								<li className="nav-item pe-4">
-									<NavLink className="nav-link" to={routes.DASHBOARD_PREFIX}>
-										Dashboard
+									<NavLink className="nav-link" to={routes.QUOTES}>
+										Quotes
 									</NavLink>
 								</li>
 								{authStore.user ? (

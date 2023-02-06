@@ -46,27 +46,22 @@ export const AppRoutes: AppRoute[] = [
 	// Private Routes
 	{
 		type: RouteType.PRIVATE,
-		path: "/dashboard",
-		children: <Dashboard />,
-	},
-	{
-		type: RouteType.PRIVATE,
-		path: "/dashboard/users/edit",
+		path: "/users/edit",
 		children: <DashboardUsersEdit />,
 	},
 	{
 		type: RouteType.PRIVATE,
-		path: "/dashboard/quotes",
+		path: "/quotes",
 		children: <DashboardProducts />,
 	},
 	{
 		type: RouteType.PRIVATE,
-		path: "/dashboard/quotes/add",
+		path: "/quotes/add",
 		children: <DashboardProductsAdd />,
 	},
 	{
 		type: RouteType.PRIVATE,
-		path: "/dashboard/quotes/edit",
+		path: "/quotes/edit",
 		children: <DashboardProductsEdit />,
 	},
 	// Public Routes

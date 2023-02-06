@@ -12,6 +12,7 @@ import {StatusCode} from "constants/errorConstants";
 import {QuoteType} from "models/quote";
 import Quote from "../../../components/quote/Quote";
 import {UserType} from "../../../models/auth";
+import Layout from "../../../components/ui/Layout";
 
 const DashboardQuotes: FC = () => {
 	const [apiError, setApiError] = useState("");
@@ -47,10 +48,10 @@ const DashboardQuotes: FC = () => {
 	};
 
 	return (
-		<DashboardLayout>
+		<Layout>
 			<div className="mb-4">
 				<h1 className="mb-4">Quotes</h1>
-				<Link className="btn btn-dark" to={`${routes.DASHBOARD_PREFIX}/quotes/add`}>
+				<Link className="btn btn-dark" to={`${routes.QUOTES}/add`}>
 					Add
 				</Link>
 			</div>
@@ -81,7 +82,7 @@ const DashboardQuotes: FC = () => {
 					</Toast>
 				</ToastContainer>
 			)}
-		</DashboardLayout>
+		</Layout>
 	);
 };
 
