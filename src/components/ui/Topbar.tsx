@@ -41,7 +41,6 @@ const Topbar: FC = () => {
 								first_name: authStore.user?.first_name,
 								last_name: authStore.user?.last_name,
 								email: authStore.user?.email,
-								role_id: authStore.user?.role?.id,
 								avatar: authStore.user?.avatar,
 								isActiveUser: true,
 							}}
@@ -70,7 +69,6 @@ const Topbar: FC = () => {
 								first_name: authStore.user?.first_name,
 								last_name: authStore.user?.last_name,
 								email: authStore.user?.email,
-								role_id: authStore.user?.role?.id,
 								avatar: authStore.user?.avatar,
 								isActiveUser: true,
 							}}

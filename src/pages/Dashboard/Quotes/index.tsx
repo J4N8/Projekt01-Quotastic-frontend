@@ -10,6 +10,8 @@ import {Link} from "react-router-dom";
 import {routes} from "constants/routesConstants";
 import {StatusCode} from "constants/errorConstants";
 import {QuoteType} from "models/quote";
+import Quote from "../../../components/quote/Quote";
+import {UserType} from "../../../models/auth";
 
 const DashboardQuotes: FC = () => {
 	const [apiError, setApiError] = useState("");
@@ -17,7 +19,7 @@ const DashboardQuotes: FC = () => {
 	const {isMobile} = useMediaQuery(768);
 	const [pageNumber, setPageNumber] = useState(1);
 
-	const {data, isLoading, refetch} = useQuery(["fetchProducts", pageNumber], () => API.fetchQuotes(pageNumber), {
+	const {data, isLoading, refetch} = useQuery(["fetchQuotes", pageNumber], () => API.fetchQuotes(pageNumber), {
 		keepPreviousData: true,
 		refetchOnWindowFocus: false,
 	});
@@ -60,37 +62,9 @@ const DashboardQuotes: FC = () => {
 						<p>No quotes found.</p>
 					) : (
 						<>
-							<div>
+							<div className="d-flex">
 								{data?.data.data.map((item: QuoteType, index: number) => (
-									<div className="border border-primary border-1">
-										{/*<img*/}
-										{/*	width={100}*/}
-										{/*	src={`${process.env.REACT_APP_API_URL}/files/${item.image}`}*/}
-										{/*	alt={item.title}*/}
-										{/*/>*/}
-										<p>{item.content}</p>
-
-										<Link
-											className={
-												isMobile
-													? "btn btn-warning btn-sm me-2 mb-2"
-													: "btn btn-warning btn-sm me-2"
-											}
-											to={`${routes.DASHBOARD_PREFIX}/products/edit`}
-											state={{
-												...item,
-											}}
-										>
-											Edit
-										</Link>
-										<Button
-											className={isMobile ? "btn-danger mb-2" : "btn-danger"}
-											size="sm"
-											onClick={() => handleDelete(item.id)}
-										>
-											Delete
-										</Button>
-									</div>
+									<Quote quoteValues={item} key={index} />
 								))}
 							</div>
 						</>

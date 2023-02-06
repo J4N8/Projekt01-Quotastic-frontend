@@ -1,4 +1,4 @@
-import CreateUpdateQuoteForm from "components/quote/CreateUpdateQuoteForm/CreateUpdateQuoteForm";
+import CreateUpdateQuoteForm from "components/quote/CreateUpdateQuoteForm";
 import DashboardLayout from "components/ui/DashboardLayout";
 import {FC} from "react";
 import {useLocation} from "react-router-dom";

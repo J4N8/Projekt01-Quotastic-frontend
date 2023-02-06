@@ -50,7 +50,7 @@ const CreateUpdateQuoteForm: FC<Props> = ({defaultValues}) => {
 			setApiError(response.data.message);
 			setShowError(true);
 		} else {
-			navigate(`${routes.DASHBOARD_PREFIX}/products`);
+			navigate(`${routes.DASHBOARD_PREFIX}/quotes`);
 		}
 	};
 

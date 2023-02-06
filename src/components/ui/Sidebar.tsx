@@ -23,7 +23,7 @@ const sidebarItems: ISidebarItem[] = [
 	},
 	{
 		title: "Quotes",
-		href: `${routes.DASHBOARD_PREFIX}/products`,
+		href: `${routes.DASHBOARD_PREFIX}/quotes`,
 	},
 ];
 

@@ -3,6 +3,7 @@ import {CreateUpdateQuoteFields} from "hooks/react-hook-form/useCreateUpdateQuot
 import {QuoteType} from "models/quote";
 
 import {apiRequest} from "./Api";
+import {UserType} from "../models/auth";
 
 export const fetchQuotes = async (pageNumber: number) =>
 	apiRequest<undefined, QuoteType[]>("get", `${apiRoutes.QUOTES_PREFIX}?page=${pageNumber}`);
