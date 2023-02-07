@@ -6,7 +6,7 @@ const DashboardProductsAdd: FC = () => {
 	return (
 		<DashboardLayout>
 			<h1 className="mb-4 text-center">Create new quote</h1>
-			<CreateUpdateQuoteForm />
+			<CreateUpdateQuoteForm shown={false} />
 		</DashboardLayout>
 	);
 };

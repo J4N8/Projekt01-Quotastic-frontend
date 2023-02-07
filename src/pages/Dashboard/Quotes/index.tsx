@@ -51,9 +51,9 @@ const DashboardQuotes: FC = () => {
 		<Layout>
 			<div className="mb-4">
 				<h1 className="mb-4">Quotes</h1>
-				<Link className="btn btn-dark" to={`${routes.QUOTES}/add`}>
-					Add
-				</Link>
+				{/*<Link className="btn btn-dark" to={`${routes.QUOTES}/add`}>*/}
+				{/*	Add*/}
+				{/*</Link>*/}
 			</div>
 			{isLoading ? (
 				<div>Loading...</div>

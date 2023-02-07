@@ -5,11 +5,13 @@ import authStore from "../../stores/auth.store";
 import {Button, Toast, ToastContainer} from "react-bootstrap";
 import {StatusCode} from "../../constants/errorConstants";
 import * as API from "api/Api";
+import CreateUpdateQuoteForm from "../quote/CreateUpdateQuoteForm";
 
 const Navbar: FC = () => {
 	const navigate = useNavigate();
 	const [apiError, setApiError] = useState("");
 	const [showError, setShowError] = useState(false);
+	const [shown, setShown] = useState(false);
 
 	const signout = async () => {
 		const response = await API.signout();
@@ -28,6 +30,7 @@ const Navbar: FC = () => {
 	return (
 		<>
 			<header>
+				<CreateUpdateQuoteForm shown={shown} />
 				<nav className="navbar navbar-expand-lg bg-light">
 					<div className="container-xxl p-4 pb-0">
 						<Link className="navbar-brand" to={routes.HOME}>
@@ -80,12 +83,7 @@ const Navbar: FC = () => {
 									</>
 								)}
 								<li className="nav-item pe-4">
-									<Button
-										className="btn btn-dark"
-										onClick={(event) => {
-											console.log("New quote button was pressed");
-										}}
-									>
+									<Button className="btn btn-dark" onClick={() => setShown(true)}>
 										+
 									</Button>
 								</li>

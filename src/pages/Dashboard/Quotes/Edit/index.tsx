@@ -9,7 +9,7 @@ const DashboardProductsEdit: FC = () => {
 	return (
 		<DashboardLayout>
 			<h1 className="mb-4 text-center">Edit product</h1>
-			<CreateUpdateQuoteForm defaultValues={location.state} />
+			<CreateUpdateQuoteForm defaultValues={location.state} shown={false} />
 		</DashboardLayout>
 	);
 };
