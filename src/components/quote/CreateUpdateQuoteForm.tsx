@@ -10,6 +10,8 @@ import {routes} from "constants/routesConstants";
 import * as API from "api/Api";
 import {StatusCode} from "constants/errorConstants";
 import {QuoteType} from "models/quote";
+import Button from "react-bootstrap/Button";
+import {userStorage} from "../../utils/localStorage";
 
 interface Props {
 	defaultValues?: QuoteType;
@@ -24,6 +26,7 @@ const CreateUpdateQuoteForm: FC<Props> = ({defaultValues}) => {
 	const [showError, setShowError] = useState(false);
 
 	const onSubmit = handleSubmit(async (data: CreateUpdateQuoteFields) => {
+		data.user_id = userStorage.getUser().id;
 		if (!defaultValues) await handleAdd(data);
 		else await handleUpdate(data);
 	});
@@ -37,7 +40,7 @@ const CreateUpdateQuoteForm: FC<Props> = ({defaultValues}) => {
 			setApiError(response.data.message);
 			setShowError(true);
 		} else {
-			navigate(`${routes.DASHBOARD_PREFIX}/quotes`);
+			navigate(routes.QUOTES);
 		}
 	};
 
@@ -50,33 +53,41 @@ const CreateUpdateQuoteForm: FC<Props> = ({defaultValues}) => {
 			setApiError(response.data.message);
 			setShowError(true);
 		} else {
-			navigate(`${routes.DASHBOARD_PREFIX}/quotes`);
+			navigate(`${routes.HOME}/quotes`);
 		}
 	};
 
 	return (
 		<>
-			<Form className="product-form" onSubmit={onSubmit}>
-				<Controller
-					control={control}
-					name="content"
-					render={({field}) => (
-						<Form.Group className="mb-3">
-							<FormLabel htmlFor="content">Title</FormLabel>
-							<input
-								{...field}
-								type="text"
-								aria-label="Content"
-								aria-describedby="content"
-								className={errors.content ? "form-control is-invalid" : "form-control"}
-							/>
-							{errors.content && (
-								<div className="invalid-feedback text-danger">{errors.content.message}</div>
-							)}
-						</Form.Group>
-					)}
-				/>
-			</Form>
+			<div>
+				<h2>Are you feeling inspired?</h2>
+				<Form className="quote-form" onSubmit={onSubmit}>
+					<Controller
+						control={control}
+						name="content"
+						render={({field}) => (
+							<Form.Group className="mb-3">
+								<FormLabel htmlFor="content">
+									You can post quotes. You can delete them on your profile.
+								</FormLabel>
+								<input
+									{...field}
+									type="text"
+									aria-label="Content"
+									aria-describedby="content"
+									className={errors.content ? "form-control is-invalid" : "form-control"}
+								/>
+								{errors.content && (
+									<div className="invalid-feedback text-danger">{errors.content.message}</div>
+								)}
+							</Form.Group>
+						)}
+					/>
+					<Button className="w-100" type="submit">
+						Post
+					</Button>
+				</Form>
+			</div>
 			{showError && (
 				<ToastContainer className="p-3" position="top-end">
 					<Toast onClose={() => setShowError(false)} show={showError}>

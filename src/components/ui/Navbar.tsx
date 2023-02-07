@@ -79,6 +79,16 @@ const Navbar: FC = () => {
 										</li>
 									</>
 								)}
+								<li className="nav-item pe-4">
+									<Button
+										className="btn btn-dark"
+										onClick={(event) => {
+											console.log("New quote button was pressed");
+										}}
+									>
+										+
+									</Button>
+								</li>
 							</ul>
 						</div>
 					</div>

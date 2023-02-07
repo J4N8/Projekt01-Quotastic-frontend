@@ -2,9 +2,12 @@ import {yupResolver} from "@hookform/resolvers/yup";
 import {QuoteType} from "models/quote";
 import {useForm} from "react-hook-form";
 import * as Yup from "yup";
+import {userStorage} from "../../utils/localStorage";
+import {UserType} from "../../models/auth";
 
 export interface CreateUpdateQuoteFields {
 	content: string;
+	user_id?: string;
 }
 
 interface Props {
@@ -23,6 +26,7 @@ export const useCreateUpdateQuoteForm = ({defaultValues}: Props) => {
 	} = useForm({
 		defaultValues: {
 			content: "",
+			author: userStorage.getUser(),
 			...defaultValues,
 		},
 		mode: "onSubmit",

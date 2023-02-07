@@ -3,13 +3,12 @@ import {CreateUpdateQuoteFields} from "hooks/react-hook-form/useCreateUpdateQuot
 import {QuoteType} from "models/quote";
 
 import {apiRequest} from "./Api";
-import {UserType} from "../models/auth";
 
 export const fetchQuotes = async (pageNumber: number) =>
 	apiRequest<undefined, QuoteType[]>("get", `${apiRoutes.QUOTES_PREFIX}?page=${pageNumber}`);
 
 export const createQuote = async (data: CreateUpdateQuoteFields) =>
-	apiRequest<CreateUpdateQuoteFields, QuoteType>("post", apiRoutes.QUOTES_PREFIX, data);
+	apiRequest<CreateUpdateQuoteFields, QuoteType>("post", `/me/myquote`, data);
 
 export const updateQuote = async (data: CreateUpdateQuoteFields, id: string) =>
 	apiRequest<CreateUpdateQuoteFields, QuoteType>("patch", `${apiRoutes.QUOTES_PREFIX}/${id}`, data);

@@ -31,10 +31,10 @@ const Quote: FC<Props> = ({quoteValues}) => {
 				<div className="author d-flex">
 					<img
 						className="avatar"
-						src={`${process.env.REACT_APP_API_URL}/files/${quoteValues.author.avatar}`}
+						src={`${process.env.REACT_APP_API_URL}/files/${quoteValues.author?.avatar}`}
 						width={30}
 					/>
-					<p className="m-1">{quoteValues.author.first_name + " " + quoteValues.author.last_name}</p>
+					<p className="m-1">{quoteValues.author?.first_name + " " + quoteValues.author?.last_name}</p>
 				</div>
 			</div>
 
