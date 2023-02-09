@@ -16,7 +16,7 @@
 		"@hookform/resolvers": "^2.9.10",
 		"axios": "^1.2.1",
 		"bootstrap": "^5.2.3",
-		"bootstrap-icons": "^1.10.2",
+		"bootstrap-icons": "^1.10.3",
 		"c3": "^0.7.20",
 		"mobx": "^6.7.0",
 		"mobx-react": "^7.6.0",

@@ -4,6 +4,8 @@ import Toast from "react-bootstrap/Toast";
 import {QuoteType} from "models/quote";
 import Button from "react-bootstrap/Button";
 import {UserType} from "../../models/user";
+import {quoteStorage} from "../../utils/localStorage";
+import * as API from "api/Api";
 
 interface Props {
 	quoteValues: QuoteType;
@@ -18,11 +20,23 @@ const Quote: FC<Props> = ({quoteValues}) => {
 			<div className="quote border border-primary">
 				<div className="d-flex">
 					<div className="votes pe-0">
-						<Button className="btn-vote" size="sm">
+						<Button
+							className="btn-vote"
+							size="sm"
+							onClick={() => {
+								API.upvoteQuote(quoteValues.id);
+							}}
+						>
 							^
 						</Button>
 						<p>{quoteValues.score}</p>
-						<Button className="btn-vote" size="sm">
+						<Button
+							className="btn-vote"
+							size="sm"
+							onClick={() => {
+								API.downvoteQuote(quoteValues.id);
+							}}
+						>
 							v
 						</Button>
 					</div>
@@ -35,6 +49,22 @@ const Quote: FC<Props> = ({quoteValues}) => {
 						width={30}
 					/>
 					<p className="m-1">{quoteValues.author?.first_name + " " + quoteValues.author?.last_name}</p>
+				</div>
+				<div className="quote_buttons d-flex">
+					<Button
+						className="btn-edit bi bi-gear"
+						size="sm"
+						onClick={() => {
+							quoteStorage.setQuote(quoteValues);
+						}}
+					/>
+					<Button
+						className="btn-delete bi bi-x"
+						size="sm"
+						onClick={() => {
+							API.deleteQuote(quoteValues.id);
+						}}
+					/>
 				</div>
 			</div>
 

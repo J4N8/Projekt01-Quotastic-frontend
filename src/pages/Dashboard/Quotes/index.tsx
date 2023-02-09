@@ -13,6 +13,7 @@ import {QuoteType} from "models/quote";
 import Quote from "../../../components/quote/Quote";
 import {UserType} from "../../../models/user";
 import Layout from "../../../components/ui/Layout";
+import UpdateQuoteForm from "../../../components/quote/UpdateQuoteForm";
 
 const DashboardQuotes: FC = () => {
 	const [apiError, setApiError] = useState("");
@@ -65,7 +66,9 @@ const DashboardQuotes: FC = () => {
 						<>
 							<div className="d-flex">
 								{data?.data.data.map((item: QuoteType, index: number) => (
-									<Quote quoteValues={item} key={index} />
+									<div className="quote">
+										<Quote quoteValues={item} key={index} />
+									</div>
 								))}
 							</div>
 						</>

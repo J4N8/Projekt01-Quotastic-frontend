@@ -5,7 +5,6 @@ import ToastContainer from "react-bootstrap/ToastContainer";
 import Toast from "react-bootstrap/Toast";
 import {Form, Modal} from "react-bootstrap";
 import {Controller} from "react-hook-form";
-import FormLabel from "react-bootstrap/FormLabel";
 import {routes} from "constants/routesConstants";
 import * as API from "api/Api";
 import {StatusCode} from "constants/errorConstants";
@@ -18,7 +17,7 @@ interface Props {
 	shown: boolean;
 }
 
-const CreateUpdateQuoteForm: FC<Props> = ({defaultValues, shown}) => {
+const UpdateQuoteForm: FC<Props> = ({defaultValues, shown}) => {
 	const navigate = useNavigate();
 	const {handleSubmit, errors, control} = useCreateUpdateQuoteForm({
 		defaultValues,
@@ -61,23 +60,19 @@ const CreateUpdateQuoteForm: FC<Props> = ({defaultValues, shown}) => {
 
 	function handleHide() {
 		shown = false;
-		console.log("hidden modal");
 	}
 
 	return (
 		<>
 			<Modal show={shown} onHide={handleHide}>
 				<div>
-					<h2>Are you feeling inspired?</h2>
+					<h2>Edit your quote.</h2>
 					<Form className="quote-form" onSubmit={onSubmit}>
 						<Controller
 							control={control}
 							name="content"
 							render={({field}) => (
 								<Form.Group className="mb-3">
-									<FormLabel htmlFor="content">
-										You can post quotes. You can delete them on your profile.
-									</FormLabel>
 									<input
 										{...field}
 										type="text"
@@ -92,7 +87,7 @@ const CreateUpdateQuoteForm: FC<Props> = ({defaultValues, shown}) => {
 							)}
 						/>
 						<Button className="w-100" type="submit">
-							Post
+							Edit
 						</Button>
 					</Form>
 				</div>
@@ -110,4 +105,4 @@ const CreateUpdateQuoteForm: FC<Props> = ({defaultValues, shown}) => {
 		</>
 	);
 };
-export default CreateUpdateQuoteForm;
+export default UpdateQuoteForm;

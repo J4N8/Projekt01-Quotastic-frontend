@@ -13,5 +13,6 @@ export const createQuote = async (data: CreateUpdateQuoteFields) =>
 export const updateQuote = async (data: CreateUpdateQuoteFields, id: string) =>
 	apiRequest<CreateUpdateQuoteFields, QuoteType>("patch", `${apiRoutes.QUOTES_PREFIX}/${id}`, data);
 
-export const deleteQuote = async (id: string) =>
-	apiRequest<string, QuoteType>("delete", `${apiRoutes.QUOTES_PREFIX}/${id}`);
+export const deleteQuote = async (id: string) => apiRequest<string, QuoteType>("delete", `me/myquote/${id}`);
+export const upvoteQuote = async (id: string) => apiRequest<string, QuoteType>("post", `quotes/${id}/upvote`);
+export const downvoteQuote = async (id: string) => apiRequest<string, QuoteType>("post", `quotes/${id}/downvote`);

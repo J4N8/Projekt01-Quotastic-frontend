@@ -1,4 +1,4 @@
-import CreateUpdateQuoteForm from "components/quote/CreateUpdateQuoteForm";
+import CreateQuoteForm from "components/quote/CreateQuoteForm";
 import DashboardLayout from "components/ui/DashboardLayout";
 import {FC} from "react";
 
@@ -6,7 +6,7 @@ const DashboardProductsAdd: FC = () => {
 	return (
 		<DashboardLayout>
 			<h1 className="mb-4 text-center">Create new quote</h1>
-			<CreateUpdateQuoteForm shown={false} />
+			<CreateQuoteForm shown={false} />
 		</DashboardLayout>
 	);
 };

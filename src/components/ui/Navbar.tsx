@@ -5,13 +5,15 @@ import authStore from "../../stores/auth.store";
 import {Button, Toast, ToastContainer} from "react-bootstrap";
 import {StatusCode} from "../../constants/errorConstants";
 import * as API from "api/Api";
-import CreateUpdateQuoteForm from "../quote/CreateUpdateQuoteForm";
+import CreateQuoteForm from "../quote/CreateQuoteForm";
+import UpdateQuoteForm from "../quote/UpdateQuoteForm";
 
 const Navbar: FC = () => {
 	const navigate = useNavigate();
 	const [apiError, setApiError] = useState("");
 	const [showError, setShowError] = useState(false);
 	const [shown, setShown] = useState(false);
+	const [quoteEdit, setQuoteEdit] = useState(undefined);
 
 	const signout = async () => {
 		const response = await API.signout();
@@ -30,7 +32,8 @@ const Navbar: FC = () => {
 	return (
 		<>
 			<header>
-				<CreateUpdateQuoteForm shown={shown} />
+				<CreateQuoteForm shown={shown} />
+				<UpdateQuoteForm defaultValues={quoteEdit} shown={false} />
 				<nav className="navbar navbar-expand-lg bg-light">
 					<div className="container-xxl p-4 pb-0">
 						<Link className="navbar-brand" to={routes.HOME}>
