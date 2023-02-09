@@ -1,4 +1,4 @@
-import {UserType} from "models/auth";
+import {UserType} from "models/user";
 
 const user_prefix = "user";
 

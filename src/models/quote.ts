@@ -1,4 +1,4 @@
-import {UserType} from "./auth";
+import {UserType} from "./user";
 
 export type QuoteType = {
 	id: string;

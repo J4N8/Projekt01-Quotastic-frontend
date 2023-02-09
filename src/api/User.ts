@@ -1,6 +1,6 @@
 import {apiRequest} from "./Api";
 import {apiRoutes} from "../constants/apiConstants";
-import {UserType} from "../models/auth";
+import {UserType} from "../models/user";
 import {RegisterUserFields} from "../hooks/react-hook-form/useRegister";
 import {LoginUserFields} from "../hooks/react-hook-form/useLogin";
 import {CreateUserFields, UpdateUserFields} from "../hooks/react-hook-form/useCreateUpdateUser";

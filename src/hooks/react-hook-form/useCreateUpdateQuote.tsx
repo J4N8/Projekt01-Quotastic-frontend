@@ -3,7 +3,7 @@ import {QuoteType} from "models/quote";
 import {useForm} from "react-hook-form";
 import * as Yup from "yup";
 import {userStorage} from "../../utils/localStorage";
-import {UserType} from "../../models/auth";
+import {UserType} from "../../models/user";
 
 export interface CreateUpdateQuoteFields {
 	content: string;

@@ -11,7 +11,7 @@ import {routes} from "constants/routesConstants";
 import {StatusCode} from "constants/errorConstants";
 import {QuoteType} from "models/quote";
 import Quote from "../../../components/quote/Quote";
-import {UserType} from "../../../models/auth";
+import {UserType} from "../../../models/user";
 import Layout from "../../../components/ui/Layout";
 
 const DashboardQuotes: FC = () => {

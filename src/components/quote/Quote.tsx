@@ -3,7 +3,7 @@ import ToastContainer from "react-bootstrap/ToastContainer";
 import Toast from "react-bootstrap/Toast";
 import {QuoteType} from "models/quote";
 import Button from "react-bootstrap/Button";
-import {UserType} from "../../models/auth";
+import {UserType} from "../../models/user";
 
 interface Props {
 	quoteValues: QuoteType;

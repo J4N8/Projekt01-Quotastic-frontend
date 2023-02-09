@@ -13,7 +13,7 @@ import {StatusCode} from "constants/errorConstants";
 import authStore from "stores/auth.store";
 import Avatar from "react-avatar";
 import {observer} from "mobx-react";
-import {UserType} from "models/auth";
+import {UserType} from "models/user";
 
 interface Props {
 	defaultValues?: UserType & {isActiveUser?: boolean};
