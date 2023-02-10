@@ -7,6 +7,7 @@ import {UserType} from "../../models/user";
 import {quoteStorage, userStorage} from "../../utils/localStorage";
 import * as API from "api/Api";
 import UpdateQuoteForm from "./UpdateQuoteForm";
+import DeleteQuoteConfirmation from "./DeleteQuoteConfirmation";
 
 interface Props {
 	quoteValues: QuoteType;
@@ -15,7 +16,8 @@ interface Props {
 const Quote: FC<Props> = ({quoteValues}) => {
 	const [apiError, setApiError] = useState("");
 	const [showError, setShowError] = useState(false);
-	const [shown, setShown] = useState(false);
+	const [shownEdit, setShownEdit] = useState(false);
+	const [shownDelete, setShownDelete] = useState(false);
 
 	return (
 		<>
@@ -58,16 +60,14 @@ const Quote: FC<Props> = ({quoteValues}) => {
 							className="btn-edit bi bi-gear"
 							size="sm"
 							onClick={() => {
-								setShown(true);
+								setShownEdit(true);
 							}}
 						/>
 						<Button
 							className="btn-delete bi bi-x"
 							size="sm"
 							onClick={() => {
-								API.deleteQuote(quoteValues.id).then((r) => {
-									window.location.reload();
-								});
+								setShownDelete(true);
 							}}
 						/>
 					</div>
@@ -75,7 +75,8 @@ const Quote: FC<Props> = ({quoteValues}) => {
 					<></>
 				)}
 
-				<UpdateQuoteForm shown={shown} defaultValues={quoteValues} />
+				<UpdateQuoteForm shown={shownEdit} defaultValues={quoteValues} />
+				<DeleteQuoteConfirmation shown={shownDelete} defaultValues={quoteValues} />
 			</div>
 
 			{
