@@ -28,9 +28,7 @@ const CreateQuoteForm: FC<Props> = ({defaultValues, shown}) => {
 
 	const onSubmit = handleSubmit(async (data: CreateUpdateQuoteFields) => {
 		data.user_id = userStorage.getUser().id;
-		if (!defaultValues) await handleAdd(data);
-		else await handleUpdate(data);
-		shown = false;
+		await handleAdd(data);
 		window.location.reload();
 	});
 
@@ -44,19 +42,6 @@ const CreateQuoteForm: FC<Props> = ({defaultValues, shown}) => {
 			setShowError(true);
 		} else {
 			navigate(routes.QUOTES);
-		}
-	};
-
-	const handleUpdate = async (data: CreateUpdateQuoteFields) => {
-		const response = await API.updateQuote(data, defaultValues?.id as string);
-		if (response.data?.statusCode === StatusCode.BAD_REQUEST) {
-			setApiError(response.data.message);
-			setShowError(true);
-		} else if (response.data?.statusCode === StatusCode.INTERNAL_SERVER_ERROR) {
-			setApiError(response.data.message);
-			setShowError(true);
-		} else {
-			navigate(`${routes.HOME}/quotes`);
 		}
 	};
 

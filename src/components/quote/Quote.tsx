@@ -4,8 +4,9 @@ import Toast from "react-bootstrap/Toast";
 import {QuoteType} from "models/quote";
 import Button from "react-bootstrap/Button";
 import {UserType} from "../../models/user";
-import {quoteStorage} from "../../utils/localStorage";
+import {quoteStorage, userStorage} from "../../utils/localStorage";
 import * as API from "api/Api";
+import UpdateQuoteForm from "./UpdateQuoteForm";
 
 interface Props {
 	quoteValues: QuoteType;
@@ -14,7 +15,7 @@ interface Props {
 const Quote: FC<Props> = ({quoteValues}) => {
 	const [apiError, setApiError] = useState("");
 	const [showError, setShowError] = useState(false);
-	const [changed, setChanged] = useState(false);
+	const [shown, setShown] = useState(false);
 
 	return (
 		<>
@@ -51,22 +52,30 @@ const Quote: FC<Props> = ({quoteValues}) => {
 					/>
 					<p className="m-1">{quoteValues.author?.first_name + " " + quoteValues.author?.last_name}</p>
 				</div>
-				<div className="quote_buttons d-flex">
-					<Button
-						className="btn-edit bi bi-gear"
-						size="sm"
-						onClick={() => {
-							quoteStorage.setQuote(quoteValues);
-						}}
-					/>
-					<Button
-						className="btn-delete bi bi-x"
-						size="sm"
-						onClick={() => {
-							API.deleteQuote(quoteValues.id).then((r) => window.location.reload());
-						}}
-					/>
-				</div>
+				{quoteValues.author.id === userStorage.getUser().id ? (
+					<div className="quote_buttons d-flex">
+						<Button
+							className="btn-edit bi bi-gear"
+							size="sm"
+							onClick={() => {
+								setShown(true);
+							}}
+						/>
+						<Button
+							className="btn-delete bi bi-x"
+							size="sm"
+							onClick={() => {
+								API.deleteQuote(quoteValues.id).then((r) => {
+									window.location.reload();
+								});
+							}}
+						/>
+					</div>
+				) : (
+					<></>
+				)}
+
+				<UpdateQuoteForm shown={shown} defaultValues={quoteValues} />
 			</div>
 
 			{

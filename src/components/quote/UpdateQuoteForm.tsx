@@ -26,24 +26,10 @@ const UpdateQuoteForm: FC<Props> = ({defaultValues, shown}) => {
 	const [showError, setShowError] = useState(false);
 
 	const onSubmit = handleSubmit(async (data: CreateUpdateQuoteFields) => {
-		handleHide();
 		data.user_id = userStorage.getUser().id;
-		if (!defaultValues) await handleAdd(data);
-		else await handleUpdate(data);
+		await handleUpdate(data);
+		window.location.reload();
 	});
-
-	const handleAdd = async (data: CreateUpdateQuoteFields) => {
-		const response = await API.createQuote(data);
-		if (response.data?.statusCode === StatusCode.BAD_REQUEST) {
-			setApiError(response.data.message);
-			setShowError(true);
-		} else if (response.data?.statusCode === StatusCode.INTERNAL_SERVER_ERROR) {
-			setApiError(response.data.message);
-			setShowError(true);
-		} else {
-			navigate(routes.QUOTES);
-		}
-	};
 
 	const handleUpdate = async (data: CreateUpdateQuoteFields) => {
 		const response = await API.updateQuote(data, defaultValues?.id as string);
@@ -58,13 +44,9 @@ const UpdateQuoteForm: FC<Props> = ({defaultValues, shown}) => {
 		}
 	};
 
-	function handleHide() {
-		shown = false;
-	}
-
 	return (
 		<>
-			<Modal show={shown} onHide={handleHide}>
+			<Modal show={shown} onHide={() => (shown = false)}>
 				<div>
 					<h2>Edit your quote.</h2>
 					<Form className="quote-form" onSubmit={onSubmit}>
@@ -86,8 +68,17 @@ const UpdateQuoteForm: FC<Props> = ({defaultValues, shown}) => {
 								</Form.Group>
 							)}
 						/>
-						<Button className="w-100" type="submit">
+						<Button className="w-50" type="submit">
 							Edit
+						</Button>
+						<Button
+							className="w-50"
+							type="button"
+							onClick={(event) => {
+								window.location.reload();
+							}}
+						>
+							Cancel
 						</Button>
 					</Form>
 				</div>
