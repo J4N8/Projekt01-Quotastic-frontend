@@ -14,6 +14,7 @@ interface Props {
 const Quote: FC<Props> = ({quoteValues}) => {
 	const [apiError, setApiError] = useState("");
 	const [showError, setShowError] = useState(false);
+	const [changed, setChanged] = useState(false);
 
 	return (
 		<>
@@ -24,7 +25,7 @@ const Quote: FC<Props> = ({quoteValues}) => {
 							className="btn-vote"
 							size="sm"
 							onClick={() => {
-								API.upvoteQuote(quoteValues.id);
+								API.upvoteQuote(quoteValues.id).then((r) => window.location.reload());
 							}}
 						>
 							^
@@ -34,7 +35,7 @@ const Quote: FC<Props> = ({quoteValues}) => {
 							className="btn-vote"
 							size="sm"
 							onClick={() => {
-								API.downvoteQuote(quoteValues.id);
+								API.downvoteQuote(quoteValues.id).then((r) => window.location.reload());
 							}}
 						>
 							v
@@ -62,7 +63,7 @@ const Quote: FC<Props> = ({quoteValues}) => {
 						className="btn-delete bi bi-x"
 						size="sm"
 						onClick={() => {
-							API.deleteQuote(quoteValues.id);
+							API.deleteQuote(quoteValues.id).then((r) => window.location.reload());
 						}}
 					/>
 				</div>

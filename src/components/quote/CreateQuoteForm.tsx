@@ -27,10 +27,11 @@ const CreateQuoteForm: FC<Props> = ({defaultValues, shown}) => {
 	const [showError, setShowError] = useState(false);
 
 	const onSubmit = handleSubmit(async (data: CreateUpdateQuoteFields) => {
-		handleHide();
 		data.user_id = userStorage.getUser().id;
 		if (!defaultValues) await handleAdd(data);
 		else await handleUpdate(data);
+		shown = false;
+		window.location.reload();
 	});
 
 	const handleAdd = async (data: CreateUpdateQuoteFields) => {
@@ -59,13 +60,9 @@ const CreateQuoteForm: FC<Props> = ({defaultValues, shown}) => {
 		}
 	};
 
-	function handleHide() {
-		shown = false;
-	}
-
 	return (
 		<>
-			<Modal show={shown} onHide={handleHide}>
+			<Modal show={shown} onHide={() => (shown = false)}>
 				<div>
 					<h2>Are you feeling inspired?</h2>
 					<Form className="quote-form" onSubmit={onSubmit}>
@@ -90,8 +87,17 @@ const CreateQuoteForm: FC<Props> = ({defaultValues, shown}) => {
 								</Form.Group>
 							)}
 						/>
-						<Button className="w-100" type="submit">
+						<Button className="w-50" type="submit">
 							Post
+						</Button>
+						<Button
+							className="w-50"
+							type="button"
+							onClick={(event) => {
+								window.location.reload();
+							}}
+						>
+							Cancel
 						</Button>
 					</Form>
 				</div>
