@@ -1,16 +1,14 @@
-import {CreateUpdateQuoteFields, useCreateUpdateQuoteForm} from "hooks/react-hook-form/useCreateUpdateQuote";
+import {useCreateUpdateQuoteForm} from "hooks/react-hook-form/useCreateUpdateQuote";
 import React, {FC, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import ToastContainer from "react-bootstrap/ToastContainer";
 import Toast from "react-bootstrap/Toast";
 import {Form, Modal} from "react-bootstrap";
-import {Controller} from "react-hook-form";
 import {routes} from "constants/routesConstants";
 import * as API from "api/Api";
 import {StatusCode} from "constants/errorConstants";
 import {QuoteType} from "models/quote";
 import Button from "react-bootstrap/Button";
-import {userStorage} from "../../utils/localStorage";
 
 interface Props {
 	defaultValues: QuoteType;

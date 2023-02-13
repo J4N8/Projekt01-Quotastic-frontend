@@ -1,19 +1,13 @@
-import DashboardLayout from "components/ui/DashboardLayout";
 import {FC, useState} from "react";
 import ToastContainer from "react-bootstrap/ToastContainer";
 import Toast from "react-bootstrap/Toast";
-import Button from "react-bootstrap/Button";
 import useMediaQuery from "hooks/useMediaQuery";
 import {useMutation, useQuery} from "react-query";
 import * as API from "api/Api";
-import {Link} from "react-router-dom";
-import {routes} from "constants/routesConstants";
 import {StatusCode} from "constants/errorConstants";
 import {QuoteType} from "models/quote";
 import Quote from "../../../components/quote/Quote";
-import {UserType} from "../../../models/user";
 import Layout from "../../../components/ui/Layout";
-import UpdateQuoteForm from "../../../components/quote/UpdateQuoteForm";
 
 const DashboardQuotes: FC = () => {
 	const [apiError, setApiError] = useState("");

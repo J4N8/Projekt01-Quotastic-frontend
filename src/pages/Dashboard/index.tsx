@@ -1,5 +1,5 @@
 import DashboardLayout from "components/ui/DashboardLayout";
-import {FC, useEffect} from "react";
+import {FC} from "react";
 
 const Dashboard: FC = () => {
 	return <DashboardLayout>Dashboard</DashboardLayout>;
