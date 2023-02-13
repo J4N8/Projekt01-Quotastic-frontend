@@ -205,6 +205,7 @@ const RegisterForm: FC = () => {
 							<input
 								{...field}
 								type="password"
+								placeholder="******"
 								aria-label="Confirm password"
 								aria-describedby="confirm_password"
 								className={errors.confirm_password ? "form-control is-invalid" : "form-control"}
