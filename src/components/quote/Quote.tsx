@@ -20,50 +20,52 @@ const Quote: FC<Props> = ({quoteValues}) => {
 
 	return (
 		<>
-			<div className="quote border border-primary">
-				<div className="d-flex">
-					<div className="votes pe-0">
-						<Button
-							className="btn-vote"
-							size="sm"
-							onClick={() => {
-								API.upvoteQuote(quoteValues.id).then((r) => window.location.reload());
-							}}
-						>
-							^
-						</Button>
-						<p>{quoteValues.score}</p>
-						<Button
-							className="btn-vote"
-							size="sm"
-							onClick={() => {
-								API.downvoteQuote(quoteValues.id).then((r) => window.location.reload());
-							}}
-						>
-							v
-						</Button>
-					</div>
-					<p>{quoteValues.content}</p>
+			<div className="quote border border-primary rounded-2 d-flex">
+				<div className="votes p-2 m-2 text-center">
+					<Button
+						className="btn-vote"
+						size="sm"
+						onClick={() => {
+							API.upvoteQuote(quoteValues.id).then((r) => window.location.reload());
+						}}
+					>
+						^
+					</Button>
+					<p className="m-0 p-0">{quoteValues.score}</p>
+					<Button
+						className="btn-vote"
+						size="sm"
+						onClick={() => {
+							API.downvoteQuote(quoteValues.id).then((r) => window.location.reload());
+						}}
+					>
+						v
+					</Button>
 				</div>
-				<div className="author d-flex">
-					<img
-						className="avatar"
-						src={`${process.env.REACT_APP_API_URL}/files/${quoteValues.author?.avatar}`}
-						width={30}
-					/>
-					<p className="m-1">{quoteValues.author?.first_name + " " + quoteValues.author?.last_name}</p>
+				<div>
+					<div>
+						<p>{quoteValues.content}</p>
+					</div>
+					<div className="author d-flex">
+						<img
+							className="avatar rounded-circle"
+							src={`${process.env.REACT_APP_API_URL}/files/${quoteValues.author?.avatar}`}
+							width={30}
+						/>
+						<p className="m-1">{quoteValues.author?.first_name + " " + quoteValues.author?.last_name}</p>
+					</div>
 				</div>
 				{quoteValues.author.id === userStorage.getUser().id ? (
-					<div className="quote_buttons d-flex">
+					<div className="quote_buttons p-2">
 						<Button
-							className="btn-edit bi bi-gear"
+							className="btn-edit bi bi-gear d-block"
 							size="sm"
 							onClick={() => {
 								setShownEdit(true);
 							}}
 						/>
 						<Button
-							className="btn-delete bi bi-x"
+							className="btn-delete bi bi-x d-block"
 							size="sm"
 							onClick={() => {
 								setShownDelete(true);

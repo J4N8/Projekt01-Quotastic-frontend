@@ -60,7 +60,7 @@ const DashboardQuotes: FC = () => {
 						<>
 							<div className="d-flex">
 								{data?.data.data.map((item: QuoteType, index: number) => (
-									<div className="quote">
+									<div className="w-25 p-2">
 										<Quote quoteValues={item} key={index} />
 									</div>
 								))}
