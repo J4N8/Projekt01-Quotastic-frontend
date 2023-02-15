@@ -55,7 +55,7 @@ const Quote: FC<Props> = ({quoteValues}) => {
 						<p className="m-1">{quoteValues.author?.first_name + " " + quoteValues.author?.last_name}</p>
 					</div>
 				</div>
-				{quoteValues.author.id === userStorage.getUser().id ? (
+				{quoteValues.author.id === userStorage.getUser()?.id ? (
 					<div className="quote_buttons p-2">
 						<Button
 							className="btn-edit bi bi-gear d-block"
