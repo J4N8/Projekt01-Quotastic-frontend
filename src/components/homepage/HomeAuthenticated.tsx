@@ -8,6 +8,7 @@ import {QuoteType} from "../../models/quote";
 import Quote from "../quote/Quote";
 import {useQueries, useQuery, UseQueryResult} from "react-query";
 import * as API from "../../api/Api";
+import authStore from "../../stores/auth.store";
 
 const HomeAuthenticated = () => {
 	const user: UserType = userStorage.getUser();
@@ -69,7 +70,7 @@ const HomeAuthenticated = () => {
 								<>
 									<div>
 										{sortedScore.data?.data.data.map((item: QuoteType, index: number) => (
-											<div className="p-2 border-1 rounded-2 border-orange">
+											<div className="p-2 border-1 rounded-2 border-orange m-2">
 												<Quote quoteValues={item} key={index} />
 											</div>
 										))}
@@ -91,7 +92,7 @@ const HomeAuthenticated = () => {
 								<>
 									<div>
 										{sortedRecent.data?.data.data.map((item: QuoteType, index: number) => (
-											<div className="p-2 border rounded-2">
+											<div className="p-2 border-1 rounded-2 border-orange m-2">
 												<Quote quoteValues={item} key={index} />
 											</div>
 										))}

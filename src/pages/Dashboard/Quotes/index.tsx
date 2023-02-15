@@ -46,9 +46,6 @@ const DashboardQuotes: FC = () => {
 		<Layout>
 			<div className="mb-4">
 				<h1 className="mb-4">Quotes</h1>
-				{/*<Link className="btn btn-dark" to={`${routes.QUOTES}/add`}>*/}
-				{/*	Add*/}
-				{/*</Link>*/}
 			</div>
 			{isLoading ? (
 				<div>Loading...</div>
@@ -60,7 +57,7 @@ const DashboardQuotes: FC = () => {
 						<>
 							<div className="d-flex">
 								{data?.data.data.map((item: QuoteType, index: number) => (
-									<div className="p-2">
+									<div className="p-2 border-1 rounded-2 border-orange">
 										<Quote quoteValues={item} key={index} />
 									</div>
 								))}

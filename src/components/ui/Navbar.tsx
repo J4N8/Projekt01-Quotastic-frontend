@@ -28,7 +28,7 @@ const Navbar: FC = () => {
 			setShowError(true);
 		} else {
 			authStore.signout();
-			navigate(routes.HOME);
+			navigate(routes.LOGIN);
 		}
 	};
 
@@ -37,7 +37,7 @@ const Navbar: FC = () => {
 			<header>
 				<CreateQuoteForm shown={shown} />
 				<UpdateQuoteForm defaultValues={quoteEdit} shown={false} />
-				<nav className="navbar navbar-expand-lg bg-light">
+				<nav className="navbar navbar-expand-lg bg-orange">
 					<div className="container-xxl p-4 pb-0">
 						<Link className="navbar-brand" to={routes.HOME}>
 							<img src="/images/logo.png" alt="SkillUp Mentor" width={123} />
@@ -70,7 +70,7 @@ const Navbar: FC = () => {
 								</li>
 								{authStore.user ? (
 									<li className="nav-item pe-4">
-										<Button className="btn btn-dark" onClick={signout}>
+										<Button className="component-orange-reverse" onClick={signout}>
 											Signout
 										</Button>
 									</li>
@@ -81,7 +81,7 @@ const Navbar: FC = () => {
 												Login
 											</NavLink>
 										</li>
-										<li className="nav-item">
+										<li className="nav-item pe-4">
 											<NavLink className="nav-link pe-0" to={routes.SIGNUP}>
 												Signup
 											</NavLink>
@@ -91,7 +91,7 @@ const Navbar: FC = () => {
 
 								{isMobile ? (
 									<Link
-										className="btn btn-dark text-decoration-none text-light me-3"
+										className="btn text-decoration-none text-light me-3"
 										to={`${routes.HOME}/users/edit`}
 										state={{
 											id: authStore.user?.id,
@@ -119,7 +119,7 @@ const Navbar: FC = () => {
 									</Link>
 								) : (
 									<Link
-										className="btn btn-dark text-decoration-none text-light me-3"
+										className="btn text-decoration-none text-light pe-4"
 										to={`${routes.HOME}/users/edit`}
 										state={{
 											id: authStore.user?.id,
@@ -144,7 +144,7 @@ const Navbar: FC = () => {
 								)}
 
 								<li className="nav-item pe-4">
-									<Button className="btn btn-dark" onClick={() => setShown(true)}>
+									<Button className="btn component-orange-reverse" onClick={() => setShown(true)}>
 										+
 									</Button>
 								</li>

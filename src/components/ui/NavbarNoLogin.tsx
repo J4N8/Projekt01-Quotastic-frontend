@@ -18,20 +18,6 @@ const Navbar: FC = () => {
 	const [shown, setShown] = useState(false);
 	const [quoteEdit, setQuoteEdit] = useState(undefined);
 
-	const signout = async () => {
-		const response = await API.signout();
-		if (response.data?.statusCode === StatusCode.BAD_REQUEST) {
-			setApiError(response.data.message);
-			setShowError(true);
-		} else if (response.data?.statusCode === StatusCode.INTERNAL_SERVER_ERROR) {
-			setApiError(response.data.message);
-			setShowError(true);
-		} else {
-			authStore.signout();
-			navigate(routes.HOME);
-		}
-	};
-
 	return (
 		<>
 			<header>
@@ -46,12 +32,12 @@ const Navbar: FC = () => {
 						>
 							<ul className="navbar-nav mb-2 mb-lg-0">
 								<li className="nav-item pe-4">
-									<NavLink className="nav-link" to={routes.LOGIN}>
+									<NavLink className="nav-link component-orange rounded-4" to={routes.LOGIN}>
 										Login
 									</NavLink>
 								</li>
 								<li className="nav-item">
-									<NavLink className="nav-link pe-0" to={routes.SIGNUP}>
+									<NavLink className="nav-link component-orange rounded-4" to={routes.SIGNUP}>
 										Signup
 									</NavLink>
 								</li>
