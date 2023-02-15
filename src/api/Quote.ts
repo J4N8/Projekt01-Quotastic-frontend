@@ -6,6 +6,10 @@ import {apiRequest} from "./Api";
 
 export const fetchQuotes = async (pageNumber: number) =>
 	apiRequest<undefined, QuoteType[]>("get", `${apiRoutes.QUOTES_PREFIX}?page=${pageNumber}`);
+export const fetchQuotesSortedScore = async (pageNumber: number) =>
+	apiRequest<undefined, QuoteType[]>("get", `${apiRoutes.QUOTES_PREFIX}/sorted_score/?page=${pageNumber}`);
+export const fetchQuotesSortedRecent = async (pageNumber: number) =>
+	apiRequest<undefined, QuoteType[]>("get", `${apiRoutes.QUOTES_PREFIX}/sorted_recent/?page=${pageNumber}`);
 
 export const createQuote = async (data: CreateUpdateQuoteFields) =>
 	apiRequest<CreateUpdateQuoteFields, QuoteType>("post", `${apiRoutes.QUOTES_PREFIX}`, data);

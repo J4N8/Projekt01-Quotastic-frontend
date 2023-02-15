@@ -17,18 +17,3 @@ const userStorage = {
 };
 
 export {userStorage};
-
-const quoteStorage = {
-	getQuote: (): QuoteType => {
-		if (typeof window === "undefined") return {} as QuoteType;
-		return JSON.parse(window.localStorage.getItem(`quote`) as string) as QuoteType;
-	},
-	setQuote: (quote: QuoteType): void => {
-		window.localStorage.setItem(`quote`, JSON.stringify(quote));
-	},
-	clearQuote: (): void => {
-		window.localStorage.removeItem(`quote`);
-	},
-};
-
-export {quoteStorage};
