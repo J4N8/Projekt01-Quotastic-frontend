@@ -48,7 +48,11 @@ const LoginForm: FC = () => {
 								placeholder="example@example.com"
 								aria-label="Email"
 								aria-describedby="email"
-								className={errors.email ? "form-control is-invalid" : "form-control"}
+								className={
+									errors.email
+										? "form-control is-invalid component-orange-reverse"
+										: "form-control component-orange-reverse"
+								}
 							/>
 							{errors.email && <div className="invalid-feedback text-danger">{errors.email.message}</div>}
 						</Form.Group>
@@ -66,7 +70,11 @@ const LoginForm: FC = () => {
 								placeholder="******"
 								aria-label="Password"
 								aria-describedby="password"
-								className={errors.password ? "form-control is-invalid" : "form-control"}
+								className={
+									errors.password
+										? "form-control is-invalid component-orange-reverse"
+										: "form-control component-orange-reverse"
+								}
 							/>
 							{errors.password && (
 								<div className="invalid-feedback text-danger">{errors.password.message}</div>
@@ -74,12 +82,12 @@ const LoginForm: FC = () => {
 						</Form.Group>
 					)}
 				/>
-				<Button className="w-100" type="submit">
+				<Button className="w-100 component-orange-reverse" type="submit">
 					Login
 				</Button>
 				<div className="d-flex justify-content-between align-items-center mb-2">
 					<p className="mb-0">Don't have an account yet?</p>
-					<Link className="text-decoration-none text-end" to={routes.SIGNUP}>
+					<Link className="text-decoration-none text-end orange" to={routes.SIGNUP}>
 						Sign up
 					</Link>
 				</div>

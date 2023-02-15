@@ -6,7 +6,11 @@ const Register: FC = () => {
 	return (
 		<Layout>
 			<div className="text-center">
-				<h1>What is your name?</h1>
+				<div className="d-inline-flex">
+					<h1>What is your</h1>
+					<h1 className="p-2"></h1>
+					<h1 className="orange">name?</h1>
+				</div>
 				<p>Your name will appear on quotes and your public profile.</p>
 			</div>
 			<RegisterForm />

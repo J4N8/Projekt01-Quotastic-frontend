@@ -130,7 +130,11 @@ const RegisterForm: FC = () => {
 								placeholder="example@example.com"
 								aria-label="Email"
 								aria-describedby="email"
-								className={errors.email ? "form-control is-invalid" : "form-control"}
+								className={
+									errors.email
+										? "form-control is-invalid component-orange-reverse"
+										: "form-control component-orange-reverse"
+								}
 							/>
 							{errors.email && <div className="invalid-feedback text-danger">{errors.email.message}</div>}
 						</Form.Group>
@@ -148,7 +152,11 @@ const RegisterForm: FC = () => {
 									type="text"
 									aria-label="First name"
 									aria-describedby="first_name"
-									className={errors.first_name ? "form-control is-invalid" : "form-control"}
+									className={
+										errors.first_name
+											? "form-control is-invalid component-orange-reverse"
+											: "form-control component-orange-reverse"
+									}
 								/>
 								{errors.first_name && (
 									<div className="invalid-feedback text-danger">{errors.first_name.message}</div>
@@ -167,7 +175,11 @@ const RegisterForm: FC = () => {
 									type="text"
 									aria-label="Last name"
 									aria-describedby="last_name"
-									className={errors.last_name ? "form-control is-invalid" : "form-control"}
+									className={
+										errors.last_name
+											? "form-control is-invalid component-orange-reverse"
+											: "form-control component-orange-reverse"
+									}
 								/>
 								{errors.last_name && (
 									<div className="invalid-feedback text-danger">{errors.last_name.message}</div>
@@ -188,7 +200,11 @@ const RegisterForm: FC = () => {
 								placeholder="******"
 								aria-label="Password"
 								aria-describedby="password"
-								className={errors.password ? "form-control is-invalid" : "form-control"}
+								className={
+									errors.password
+										? "form-control is-invalid component-orange-reverse"
+										: "form-control component-orange-reverse"
+								}
 							/>
 							{errors.password && (
 								<div className="invalid-feedback text-danger">{errors.password.message}</div>
@@ -208,7 +224,11 @@ const RegisterForm: FC = () => {
 								placeholder="******"
 								aria-label="Confirm password"
 								aria-describedby="confirm_password"
-								className={errors.confirm_password ? "form-control is-invalid" : "form-control"}
+								className={
+									errors.confirm_password
+										? "form-control is-invalid component-orange-reverse"
+										: "form-control component-orange-reverse"
+								}
 							/>
 							{errors.confirm_password && (
 								<div className="invalid-feedback text-danger">{errors.confirm_password.message}</div>
@@ -218,11 +238,11 @@ const RegisterForm: FC = () => {
 				/>
 				<div className="d-flex justify-content-between align-items-center mb-2">
 					<p className="mb-0">Already have an account?</p>
-					<Link className="text-decoration-none text-end" to={routes.LOGIN}>
+					<Link className="text-decoration-none text-end orange" to={routes.LOGIN}>
 						Login
 					</Link>
 				</div>
-				<Button className="w-100" type="submit" onMouseUp={handleFileError}>
+				<Button className="w-100 component-orange" type="submit" onMouseUp={handleFileError}>
 					Create account
 				</Button>
 			</Form>
