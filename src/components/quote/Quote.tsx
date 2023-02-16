@@ -1,6 +1,4 @@
 import {FC, useState} from "react";
-import ToastContainer from "react-bootstrap/ToastContainer";
-import Toast from "react-bootstrap/Toast";
 import {QuoteType} from "models/quote";
 import Button from "react-bootstrap/Button";
 import {userStorage} from "../../utils/localStorage";
@@ -24,7 +22,7 @@ const Quote: FC<Props> = ({quoteValues}) => {
 						className="btn-vote bi bi-chevron-up btn-none"
 						size="sm"
 						onClick={() => {
-							API.upvoteQuote(quoteValues.id).then((r) => window.location.reload());
+							API.upvoteQuote(quoteValues.id).then(() => window.location.reload());
 						}}
 					></Button>
 					<p className="m-0 p-0">{quoteValues.score}</p>
@@ -32,7 +30,7 @@ const Quote: FC<Props> = ({quoteValues}) => {
 						className="btn-vote bi bi-chevron-down btn-none"
 						size="sm"
 						onClick={() => {
-							API.downvoteQuote(quoteValues.id).then((r) => window.location.reload());
+							API.downvoteQuote(quoteValues.id).then(() => window.location.reload());
 						}}
 					></Button>
 				</div>

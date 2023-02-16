@@ -1,6 +1,7 @@
 import {makeAutoObservable} from "mobx";
 import {UserType} from "models/user";
 import {userStorage} from "utils/localStorage";
+
 class AuthStore {
 	user?: UserType | null = userStorage.getUser() || null;
 

@@ -6,8 +6,6 @@ import {QuoteType} from "../../models/quote";
 import Quote from "../quote/Quote";
 import {useQueries} from "react-query";
 import * as API from "../../api/Api";
-import ToastContainer from "react-bootstrap/ToastContainer";
-import Toast from "react-bootstrap/Toast";
 
 const HomeNotAuthenticated = () => {
 	const navigate = useNavigate();
@@ -36,7 +34,10 @@ const HomeNotAuthenticated = () => {
 					</Button>
 				</div>
 				<div>
-					<img src={`${process.env.REACT_APP_API_URL}/files/landing_page_quotes.png`} />
+					<img
+						src={`${process.env.REACT_APP_API_URL}/files/landing_page_quotes.png`}
+						alt="landing page image"
+					/>
 				</div>
 			</div>
 

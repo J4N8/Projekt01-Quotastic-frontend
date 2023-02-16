@@ -2,8 +2,6 @@ import React, {useState} from "react";
 import {Button} from "react-bootstrap";
 import {userStorage} from "../../utils/localStorage";
 import {UserType} from "../../models/user";
-import ToastContainer from "react-bootstrap/ToastContainer";
-import Toast from "react-bootstrap/Toast";
 import {QuoteType} from "../../models/quote";
 import Quote from "../quote/Quote";
 import {useQueries} from "react-query";
@@ -36,6 +34,7 @@ const HomeAuthenticated = () => {
 						src={`${process.env.REACT_APP_API_URL}/files/${user.avatar}`}
 						width="100"
 						className="rounded-circle"
+						alt="avatar"
 					/>
 					<h2>
 						{user.first_name} {user.last_name}

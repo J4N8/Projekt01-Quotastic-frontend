@@ -1,7 +1,6 @@
-import React, {FC, useState} from "react";
+import React, {FC} from "react";
 import {Link, NavLink, useNavigate} from "react-router-dom";
 import {routes} from "../../constants/routesConstants";
-import {Toast, ToastContainer} from "react-bootstrap";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Navbar: FC = () => {

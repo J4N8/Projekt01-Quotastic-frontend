@@ -1,10 +1,7 @@
 import {FC, useState} from "react";
-import ToastContainer from "react-bootstrap/ToastContainer";
-import Toast from "react-bootstrap/Toast";
 import useMediaQuery from "hooks/useMediaQuery";
-import {useMutation, useQuery} from "react-query";
+import {useQuery} from "react-query";
 import * as API from "api/Api";
-import {StatusCode} from "constants/errorConstants";
 import {QuoteType} from "models/quote";
 import Quote from "../../components/quote/Quote";
 import Layout from "../../components/ui/Layout";
