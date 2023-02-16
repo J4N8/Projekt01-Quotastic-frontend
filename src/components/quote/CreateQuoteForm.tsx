@@ -48,8 +48,13 @@ const CreateQuoteForm: FC<Props> = ({defaultValues, shown}) => {
 	return (
 		<>
 			<Modal show={shown} onHide={() => (shown = false)}>
-				<div>
-					<h2>Are you feeling inspired?</h2>
+				<div className="m-4">
+					<div className="d-inline-flex">
+						<h2>Are you feeling</h2>
+						<h2 className="p-1"></h2>
+						<h2 className="orange">inspired?</h2>
+					</div>
+
 					<Form className="quote-form" onSubmit={onSubmit}>
 						<Controller
 							control={control}
@@ -64,7 +69,11 @@ const CreateQuoteForm: FC<Props> = ({defaultValues, shown}) => {
 										type="text"
 										aria-label="Content"
 										aria-describedby="content"
-										className={errors.content ? "form-control is-invalid" : "form-control"}
+										className={
+											errors.content
+												? "form-control is-invalid border-orange"
+												: "form-control border-orange"
+										}
 									/>
 									{errors.content && (
 										<div className="invalid-feedback text-danger">{errors.content.message}</div>
@@ -72,11 +81,11 @@ const CreateQuoteForm: FC<Props> = ({defaultValues, shown}) => {
 								</Form.Group>
 							)}
 						/>
-						<Button className="w-50" type="submit">
+						<Button className="px-4 component-orange rounded-4" type="submit">
 							Post
 						</Button>
 						<Button
-							className="w-50"
+							className="px-4 mx-4 btn-none rounded-4"
 							type="button"
 							onClick={(event) => {
 								window.location.reload();

@@ -21,8 +21,6 @@ const Home = lazy(() => import("pages/Home"));
 const Dashboard = lazy(() => import("pages/Dashboard"));
 const DashboardUsersEdit = lazy(() => import("pages/Dashboard/Users/Edit"));
 const DashboardProducts = lazy(() => import("pages/Dashboard/Quotes"));
-const DashboardProductsAdd = lazy(() => import("pages/Dashboard/Quotes/Add"));
-const DashboardProductsEdit = lazy(() => import("pages/Dashboard/Quotes/Edit"));
 
 /* Restricted routes */
 const Login = lazy(() => import("pages/Login"));
@@ -53,16 +51,6 @@ export const AppRoutes: AppRoute[] = [
 		type: RouteType.PRIVATE,
 		path: "/quotes",
 		children: <DashboardProducts />,
-	},
-	{
-		type: RouteType.PRIVATE,
-		path: "/quotes/add",
-		children: <DashboardProductsAdd />,
-	},
-	{
-		type: RouteType.PRIVATE,
-		path: "/quotes/edit",
-		children: <DashboardProductsEdit />,
 	},
 	// Public Routes
 	{

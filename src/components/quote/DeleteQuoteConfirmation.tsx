@@ -44,15 +44,15 @@ const DeleteQuoteConfirmation: FC<Props> = ({defaultValues, shown}) => {
 	return (
 		<>
 			<Modal show={shown} onHide={() => (shown = false)}>
-				<div>
+				<div className="m-4">
 					<h2>Are you sure?</h2>
 					<p>This quote will be deleted. There is no undo of this action.</p>
 					<Form className="quote-form" onSubmit={onSubmit}>
-						<Button className="w-50" type="submit">
+						<Button className="px-4 component-orange rounded-4" type="submit">
 							Delete
 						</Button>
 						<Button
-							className="w-50"
+							className="px-4 mx-4 btn-none rounded-4"
 							type="button"
 							onClick={(event) => {
 								window.location.reload();
