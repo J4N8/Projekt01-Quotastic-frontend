@@ -55,12 +55,14 @@ const DashboardQuotes: FC = () => {
 						<p>No quotes found.</p>
 					) : (
 						<>
-							<div className="d-flex">
-								{data?.data.data.map((item: QuoteType, index: number) => (
-									<div className="p-2 border-1 rounded-2 border-orange">
-										<Quote quoteValues={item} key={index} />
-									</div>
-								))}
+							<div className="container">
+								<div className="row row-cols-4">
+									{data?.data.data.map((item: QuoteType, index: number) => (
+										<div className="p-2 border-1 rounded-2 border-orange m-1">
+											<Quote quoteValues={item} key={index} />
+										</div>
+									))}
+								</div>
 							</div>
 						</>
 					)}
