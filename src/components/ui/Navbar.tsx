@@ -144,9 +144,10 @@ const Navbar: FC = () => {
 								)}
 
 								<li className="nav-item pe-4">
-									<Button className="btn component-orange-reverse" onClick={() => setShown(true)}>
-										+
-									</Button>
+									<Button
+										className="btn component-orange-reverse rounded-circle bi bi-plus-lg"
+										onClick={() => setShown(true)}
+									></Button>
 								</li>
 							</ul>
 						</div>
