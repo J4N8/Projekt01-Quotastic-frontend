@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {NavLink, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {routes} from "../../constants/routesConstants";
 import {Button} from "react-bootstrap";
 import {QuoteType} from "../../models/quote";

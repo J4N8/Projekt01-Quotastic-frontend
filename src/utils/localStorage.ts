@@ -1,5 +1,4 @@
 import {UserType} from "models/user";
-import {QuoteType} from "../models/quote";
 
 const user_prefix = "user";
 

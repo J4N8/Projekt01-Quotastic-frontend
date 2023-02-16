@@ -6,9 +6,8 @@ import ToastContainer from "react-bootstrap/ToastContainer";
 import Toast from "react-bootstrap/Toast";
 import {QuoteType} from "../../models/quote";
 import Quote from "../quote/Quote";
-import {useQueries, useQuery, UseQueryResult} from "react-query";
+import {useQueries} from "react-query";
 import * as API from "../../api/Api";
-import authStore from "../../stores/auth.store";
 
 const HomeAuthenticated = () => {
 	const user: UserType = userStorage.getUser();

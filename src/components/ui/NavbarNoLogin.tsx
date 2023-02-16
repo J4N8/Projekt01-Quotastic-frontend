@@ -1,13 +1,7 @@
 import React, {FC, useState} from "react";
 import {Link, NavLink, useNavigate} from "react-router-dom";
 import {routes} from "../../constants/routesConstants";
-import authStore from "../../stores/auth.store";
-import {Button, Toast, ToastContainer} from "react-bootstrap";
-import {StatusCode} from "../../constants/errorConstants";
-import * as API from "api/Api";
-import CreateQuoteForm from "../quote/CreateQuoteForm";
-import UpdateQuoteForm from "../quote/UpdateQuoteForm";
-import Avatar from "react-avatar";
+import {Toast, ToastContainer} from "react-bootstrap";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Navbar: FC = () => {
