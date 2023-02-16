@@ -10,8 +10,6 @@ import Quote from "../../components/quote/Quote";
 import Layout from "../../components/ui/Layout";
 
 const DashboardQuotes: FC = () => {
-	const [apiError, setApiError] = useState("");
-	const [showError, setShowError] = useState(false);
 	const {isMobile} = useMediaQuery(768);
 	const [pageNumber] = useState(1);
 
@@ -44,16 +42,6 @@ const DashboardQuotes: FC = () => {
 						</>
 					)}
 				</>
-			)}
-			{showError && (
-				<ToastContainer className="p-3" position="top-end">
-					<Toast onClose={() => setShowError(false)} show={showError}>
-						<Toast.Header>
-							<strong className="me-auto text-danger">Error</strong>
-						</Toast.Header>
-						<Toast.Body className="text-danger bg-light">{apiError}</Toast.Body>
-					</Toast>
-				</ToastContainer>
 			)}
 		</Layout>
 	);

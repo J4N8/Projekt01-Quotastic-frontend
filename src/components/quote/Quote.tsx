@@ -13,8 +13,6 @@ interface Props {
 }
 
 const Quote: FC<Props> = ({quoteValues}) => {
-	const [apiError, setApiError] = useState("");
-	const [showError, setShowError] = useState(false);
 	const [shownEdit, setShownEdit] = useState(false);
 	const [shownDelete, setShownDelete] = useState(false);
 
@@ -76,17 +74,6 @@ const Quote: FC<Props> = ({quoteValues}) => {
 				<UpdateQuoteForm shown={shownEdit} defaultValues={quoteValues} />
 				<DeleteQuoteConfirmation shown={shownDelete} defaultValues={quoteValues} />
 			</div>
-
-			{showError && (
-				<ToastContainer className="p-3" position="top-end">
-					<Toast onClose={() => setShowError(false)} show={showError}>
-						<Toast.Header>
-							<strong className="me-suto text-danger">Error</strong>
-						</Toast.Header>
-						<Toast.Body className="text-danger bg-light">{apiError}</Toast.Body>
-					</Toast>
-				</ToastContainer>
-			)}
 		</>
 	);
 };

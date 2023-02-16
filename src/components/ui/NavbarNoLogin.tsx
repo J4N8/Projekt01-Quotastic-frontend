@@ -7,8 +7,6 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 const Navbar: FC = () => {
 	useNavigate();
 	const {isMobile} = useMediaQuery(768);
-	const [apiError, setApiError] = useState("");
-	const [showError, setShowError] = useState(false);
 	return (
 		<>
 			<header>
@@ -37,16 +35,6 @@ const Navbar: FC = () => {
 					</div>
 				</nav>
 			</header>
-			{showError && (
-				<ToastContainer className="p-3" position="top-end">
-					<Toast onClose={() => setShowError(false)} show={showError}>
-						<Toast.Header>
-							<strong className="me-suto text-danger">Error</strong>
-						</Toast.Header>
-						<Toast.Body className="text-danger bg-light">{apiError}</Toast.Body>
-					</Toast>
-				</ToastContainer>
-			)}
 		</>
 	);
 };

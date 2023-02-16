@@ -11,8 +11,6 @@ import * as API from "../../api/Api";
 
 const HomeAuthenticated = () => {
 	const user: UserType = userStorage.getUser();
-	const [apiError, setApiError] = useState("");
-	const [showError, setShowError] = useState(false);
 	const [pageNumber, setPageNumber] = useState(1);
 
 	const [sortedScore, sortedRecent] = useQueries([
@@ -115,16 +113,6 @@ const HomeAuthenticated = () => {
 					Load more
 				</Button>
 			</div>
-			{showError && (
-				<ToastContainer className="p-3" position="top-end">
-					<Toast onClose={() => setShowError(false)} show={showError}>
-						<Toast.Header>
-							<strong className="me-auto text-danger">Error</strong>
-						</Toast.Header>
-						<Toast.Body className="text-danger bg-light">{apiError}</Toast.Body>
-					</Toast>
-				</ToastContainer>
-			)}
 		</>
 	);
 };

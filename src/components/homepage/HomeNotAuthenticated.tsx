@@ -11,8 +11,6 @@ import Toast from "react-bootstrap/Toast";
 
 const HomeNotAuthenticated = () => {
 	const navigate = useNavigate();
-	const [apiError, setApiError] = useState("");
-	const [showError, setShowError] = useState(false);
 	const [pageNumber] = useState(1);
 
 	const [sortedScore] = useQueries([
@@ -81,16 +79,6 @@ const HomeNotAuthenticated = () => {
 					Sign up to see more
 				</Button>
 			</div>
-			{showError && (
-				<ToastContainer className="p-3" position="top-end">
-					<Toast onClose={() => setShowError(false)} show={showError}>
-						<Toast.Header>
-							<strong className="me-auto text-danger">Error</strong>
-						</Toast.Header>
-						<Toast.Body className="text-danger bg-light">{apiError}</Toast.Body>
-					</Toast>
-				</ToastContainer>
-			)}
 		</div>
 	);
 };
