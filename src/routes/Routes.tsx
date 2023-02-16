@@ -18,9 +18,8 @@ type AppRoute = RouteProps & {
 const Home = lazy(() => import("pages/Home"));
 
 /* Private routes */
-const Dashboard = lazy(() => import("pages/Dashboard"));
-const DashboardUsersEdit = lazy(() => import("pages/Dashboard/Users/Edit"));
-const DashboardProducts = lazy(() => import("pages/Dashboard/Quotes"));
+const DashboardUsersEdit = lazy(() => import("pages/Users/Edit"));
+const DashboardProducts = lazy(() => import("pages/Quotes"));
 
 /* Restricted routes */
 const Login = lazy(() => import("pages/Login"));

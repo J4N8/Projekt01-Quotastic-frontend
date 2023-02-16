@@ -13,7 +13,7 @@ const HomeNotAuthenticated = () => {
 	const navigate = useNavigate();
 	const [apiError, setApiError] = useState("");
 	const [showError, setShowError] = useState(false);
-	const [pageNumber, setPageNumber] = useState(1);
+	const [pageNumber] = useState(1);
 
 	const [sortedScore] = useQueries([
 		{
@@ -33,10 +33,7 @@ const HomeNotAuthenticated = () => {
 						Quotastic is free online platform for you to explore the quips, quotes and proverbs. Sign up and
 						express yourself.
 					</h4>
-					<Button
-						className="component-orange rounded-5 px-4"
-						onClick={(event) => navigate(`${routes.SIGNUP}`)}
-					>
+					<Button className="component-orange rounded-5 px-4" onClick={() => navigate(`${routes.SIGNUP}`)}>
 						Signup
 					</Button>
 				</div>
@@ -79,7 +76,7 @@ const HomeNotAuthenticated = () => {
 				</div>
 				<Button
 					className="component-orange-reverse rounded-5 px-4"
-					onClick={(event) => navigate(`${routes.SIGNUP}`)}
+					onClick={() => navigate(`${routes.SIGNUP}`)}
 				>
 					Sign up to see more
 				</Button>

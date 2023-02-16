@@ -17,7 +17,7 @@ interface Props {
 
 const DeleteQuoteConfirmation: FC<Props> = ({defaultValues, shown}) => {
 	const navigate = useNavigate();
-	const {handleSubmit, errors, control} = useCreateUpdateQuoteForm({
+	const {handleSubmit} = useCreateUpdateQuoteForm({
 		defaultValues,
 	});
 	const [apiError, setApiError] = useState("");
@@ -54,7 +54,7 @@ const DeleteQuoteConfirmation: FC<Props> = ({defaultValues, shown}) => {
 						<Button
 							className="px-4 mx-4 btn-none rounded-4"
 							type="button"
-							onClick={(event) => {
+							onClick={() => {
 								window.location.reload();
 							}}
 						>

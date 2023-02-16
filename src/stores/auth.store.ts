@@ -1,13 +1,6 @@
 import {makeAutoObservable} from "mobx";
 import {UserType} from "models/user";
 import {userStorage} from "utils/localStorage";
-
-export interface AuthContextType {
-	user?: UserType | null;
-	login: () => void;
-	signout: () => void;
-}
-
 class AuthStore {
 	user?: UserType | null = userStorage.getUser() || null;
 

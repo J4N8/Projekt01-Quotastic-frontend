@@ -6,10 +6,6 @@ import {LoginUserFields} from "../hooks/react-hook-form/useLogin";
 import {CreateUserFields, UpdateUserFields} from "../hooks/react-hook-form/useCreateUpdateUser";
 
 export const fetchUser = async () => apiRequest<undefined, UserType>("get", apiRoutes.FETCH_USER);
-
-export const fetchUsers = async (pageNumber: number) =>
-	apiRequest<number, UserType[]>("get", `${apiRoutes.FETCH_USERS}?page=${pageNumber}`);
-
 export const login = async (data: LoginUserFields) =>
 	apiRequest<LoginUserFields, UserType>("post", apiRoutes.LOGIN, data);
 
@@ -28,6 +24,3 @@ export const createUser = async (data: CreateUserFields) =>
 
 export const updateUser = async (data: UpdateUserFields, id: string) =>
 	apiRequest<UpdateUserFields, void>("patch", `${apiRoutes.USERS_PREFIX}/${id}`, data);
-
-export const deleteUser = async (id: string) =>
-	apiRequest<string, UserType>("delete", `${apiRoutes.USERS_PREFIX}/${id}`);

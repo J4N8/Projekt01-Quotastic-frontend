@@ -16,7 +16,7 @@ const Navbar: FC = () => {
 	const [apiError, setApiError] = useState("");
 	const [showError, setShowError] = useState(false);
 	const [shown, setShown] = useState(false);
-	const [quoteEdit, setQuoteEdit] = useState(undefined);
+	const [quoteEdit] = useState(undefined);
 
 	const signout = async () => {
 		const response = await API.signout();

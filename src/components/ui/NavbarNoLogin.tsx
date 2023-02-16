@@ -5,13 +5,10 @@ import {Toast, ToastContainer} from "react-bootstrap";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Navbar: FC = () => {
-	const navigate = useNavigate();
+	useNavigate();
 	const {isMobile} = useMediaQuery(768);
 	const [apiError, setApiError] = useState("");
 	const [showError, setShowError] = useState(false);
-	const [shown, setShown] = useState(false);
-	const [quoteEdit, setQuoteEdit] = useState(undefined);
-
 	return (
 		<>
 			<header>

@@ -105,7 +105,7 @@ const HomeAuthenticated = () => {
 
 			<div className="text-center">
 				<Button
-					onClick={(event) => {
+					onClick={() => {
 						setPageNumber(pageNumber + 1);
 						sortedScore.refetch;
 						sortedRecent.refetch;

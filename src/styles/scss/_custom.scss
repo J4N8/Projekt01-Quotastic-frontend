@@ -9,7 +9,6 @@
 
 .login-form,
 .register-form {
-	width: 100%;
 	width: min(100%, 420px);
 	margin: 0 auto;
 	padding: 25px 0;
@@ -67,10 +66,4 @@
 
 .border-orange{
 	border: solid orange;
-}
-
-//Landing page no auth
-
-.landing-page-noauth{
-
 }

@@ -47,6 +47,7 @@ const Quote: FC<Props> = ({quoteValues}) => {
 							className="avatar rounded-circle"
 							src={`${process.env.REACT_APP_API_URL}/files/${quoteValues.author?.avatar}`}
 							width={30}
+							alt={quoteValues.author?.first_name + " " + quoteValues.author?.last_name}
 						/>
 						<p className="m-1">{quoteValues.author?.first_name + " " + quoteValues.author?.last_name}</p>
 					</div>

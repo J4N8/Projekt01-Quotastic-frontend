@@ -83,7 +83,7 @@ const UpdateQuoteForm: FC<Props> = ({defaultValues, shown}) => {
 						<Button
 							className="px-4 mx-4 btn-none rounded-4"
 							type="button"
-							onClick={(event) => {
+							onClick={() => {
 								window.location.reload();
 							}}
 						>

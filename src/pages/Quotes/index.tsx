@@ -6,42 +6,19 @@ import {useMutation, useQuery} from "react-query";
 import * as API from "api/Api";
 import {StatusCode} from "constants/errorConstants";
 import {QuoteType} from "models/quote";
-import Quote from "../../../components/quote/Quote";
-import Layout from "../../../components/ui/Layout";
+import Quote from "../../components/quote/Quote";
+import Layout from "../../components/ui/Layout";
 
 const DashboardQuotes: FC = () => {
 	const [apiError, setApiError] = useState("");
 	const [showError, setShowError] = useState(false);
 	const {isMobile} = useMediaQuery(768);
-	const [pageNumber, setPageNumber] = useState(1);
+	const [pageNumber] = useState(1);
 
-	const {data, isLoading, refetch} = useQuery(["fetchQuotes", pageNumber], () => API.fetchQuotes(pageNumber), {
+	const {data, isLoading} = useQuery(["fetchQuotes", pageNumber], () => API.fetchQuotes(pageNumber), {
 		keepPreviousData: true,
 		refetchOnWindowFocus: false,
 	});
-
-	const {mutate} = useMutation((id: string) => API.deleteQuote(id), {
-		onSuccess: (response) => {
-			if (response.data?.statusCode === StatusCode.BAD_REQUEST) {
-				setApiError(response.data.message);
-				setShowError(true);
-			} else if (response.data?.statusCode === StatusCode.INTERNAL_SERVER_ERROR) {
-				setApiError(response.data.message);
-				setShowError(true);
-			} else {
-				refetch();
-			}
-		},
-		onError: () => {
-			setApiError("Something went wrong while deleting a quote.");
-			setShowError(true);
-		},
-	});
-
-	const handleDelete = (id: string) => {
-		mutate(id);
-	};
-
 	return (
 		<Layout>
 			<div className="mb-4">
