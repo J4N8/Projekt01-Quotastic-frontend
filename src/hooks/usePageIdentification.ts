@@ -36,12 +36,6 @@ const callbacks: any = {
 	"/signup": [onSignup],
 	"*": [onDefault],
 };
-
-export const addPageIdentification = (_case: string, fn: () => void) => {
-	callbacks[_case] = callbacks[_case] || [];
-	callbacks[_case].push(fn);
-};
-
 export const usePageIdentification = () => {
 	const location = useLocation();
 
