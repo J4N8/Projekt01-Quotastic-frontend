@@ -1,5 +1,11 @@
+.layout {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
 .layout-container {
-	height: calc(100vh - 200px);
+	flex-grow: 1;
 }
 
 #login-page footer,
