@@ -120,7 +120,7 @@ const Navbar: FC = () => {
 								) : (
 									<Link
 										className="btn text-decoration-none text-light pe-4"
-										to={`${routes.HOME}/users/edit`}
+										to={`${routes.HOME}users/edit`}
 										state={{
 											id: authStore.user?.id,
 											first_name: authStore.user?.first_name,

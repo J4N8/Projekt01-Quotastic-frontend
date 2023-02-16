@@ -130,7 +130,7 @@ const CreateUpdateUserForm: FC<Props> = ({defaultValues}) => {
 	}, [file]);
 
 	return (
-		<>
+		<div className="d-flex justify-content-center align-items-center">
 			<Form className="user-form" onSubmit={onSubmit}>
 				<Form.Group className="d-flex flex-column justify-content-center align-items-center">
 					<FormLabel htmlFor="avatar" id="avatar-p">
@@ -159,44 +159,54 @@ const CreateUpdateUserForm: FC<Props> = ({defaultValues}) => {
 						</div>
 					)}
 				</Form.Group>
-				<Controller
-					control={control}
-					name="first_name"
-					render={({field}) => (
-						<Form.Group className="mb-3">
-							<FormLabel htmlFor="first_name">First name</FormLabel>
-							<input
-								{...field}
-								type="text"
-								aria-label="First name"
-								aria-describedby="first_name"
-								className={errors.first_name ? "form-control is-invalid" : "form-control"}
-							/>
-							{errors.first_name && (
-								<div className="invalid-feedback text-danger">{errors.first_name.message}</div>
-							)}
-						</Form.Group>
-					)}
-				/>
-				<Controller
-					control={control}
-					name="last_name"
-					render={({field}) => (
-						<Form.Group className="mb-3">
-							<FormLabel htmlFor="last_name">Last name</FormLabel>
-							<input
-								{...field}
-								type="text"
-								aria-label="Last name"
-								aria-describedby="last_name"
-								className={errors.last_name ? "form-control is-invalid" : "form-control"}
-							/>
-							{errors.last_name && (
-								<div className="invalid-feedback text-danger">{errors.last_name.message}</div>
-							)}
-						</Form.Group>
-					)}
-				/>
+				<div className="d-flex justify-content-center align-items-center">
+					<Controller
+						control={control}
+						name="first_name"
+						render={({field}) => (
+							<Form.Group className="mb-3">
+								<FormLabel htmlFor="first_name">First name</FormLabel>
+								<input
+									{...field}
+									type="text"
+									aria-label="First name"
+									aria-describedby="first_name"
+									className={
+										errors.first_name
+											? "form-control is-invalid border-orange"
+											: "form-control border-orange"
+									}
+								/>
+								{errors.first_name && (
+									<div className="invalid-feedback text-danger">{errors.first_name.message}</div>
+								)}
+							</Form.Group>
+						)}
+					/>
+					<Controller
+						control={control}
+						name="last_name"
+						render={({field}) => (
+							<Form.Group className="mb-3">
+								<FormLabel htmlFor="last_name">Last name</FormLabel>
+								<input
+									{...field}
+									type="text"
+									aria-label="Last name"
+									aria-describedby="last_name"
+									className={
+										errors.last_name
+											? "form-control is-invalid border-orange"
+											: "form-control border-orange"
+									}
+								/>
+								{errors.last_name && (
+									<div className="invalid-feedback text-danger">{errors.last_name.message}</div>
+								)}
+							</Form.Group>
+						)}
+					/>
+				</div>
 				<Controller
 					control={control}
 					name="email"
@@ -209,29 +219,13 @@ const CreateUpdateUserForm: FC<Props> = ({defaultValues}) => {
 								placeholder="example@gmail.com"
 								aria-label="Email"
 								aria-describedby="email"
-								className={errors.email ? "form-control is-invalid" : "form-control"}
+								className={
+									errors.email
+										? "form-control is-invalid border-orange"
+										: "form-control border-orange"
+								}
 							/>
 							{errors.email && <div className="invalid-feedback text-danger">{errors.email.message}</div>}
-						</Form.Group>
-					)}
-				/>
-				<Controller
-					control={control}
-					name="role_id"
-					render={({field}) => (
-						<Form.Group className="mb-3">
-							<FormLabel htmlFor="role_id">Role</FormLabel>
-							<Form.Select
-								className={errors.role_id ? "form-control is-invalid" : "form-control"}
-								{...field}
-								aria-label="Role"
-								aria-describedby="role_id"
-							>
-								<option></option>
-							</Form.Select>
-							{errors.role_id && (
-								<div className="invalid-feedback text-danger">{errors.role_id.message}</div>
-							)}
 						</Form.Group>
 					)}
 				/>
@@ -247,7 +241,11 @@ const CreateUpdateUserForm: FC<Props> = ({defaultValues}) => {
 								placeholder="******"
 								aria-label="Password"
 								aria-describedby="password"
-								className={errors.password ? "form-control is-invalid" : "form-control"}
+								className={
+									errors.password
+										? "form-control is-invalid border-orange"
+										: "form-control border-orange"
+								}
 							/>
 							{errors.password && (
 								<div className="invalid-feedback text-danger">{errors.password.message}</div>
@@ -266,7 +264,11 @@ const CreateUpdateUserForm: FC<Props> = ({defaultValues}) => {
 								type="password"
 								aria-label="Confirm password"
 								aria-describedby="confirm_password"
-								className={errors.confirm_password ? "form-control is-invalid" : "form-control"}
+								className={
+									errors.confirm_password
+										? "form-control is-invalid border-orange"
+										: "form-control border-orange"
+								}
 							/>
 							{errors.confirm_password && (
 								<div className="invalid-feedback text-danger">{errors.confirm_password.message}</div>
@@ -274,7 +276,11 @@ const CreateUpdateUserForm: FC<Props> = ({defaultValues}) => {
 						</Form.Group>
 					)}
 				/>
-				<Button className="w-100" type="submit" onMouseUp={defaultValues ? undefined : handleFileError}>
+				<Button
+					className="w-100 component-orange"
+					type="submit"
+					onMouseUp={defaultValues ? undefined : handleFileError}
+				>
 					{defaultValues ? "Update user" : "Create new user"}
 				</Button>
 			</Form>
@@ -288,7 +294,7 @@ const CreateUpdateUserForm: FC<Props> = ({defaultValues}) => {
 					</Toast>
 				</ToastContainer>
 			)}
-		</>
+		</div>
 	);
 };
 

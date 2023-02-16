@@ -7,7 +7,7 @@ const DashboardUsersEdit: FC = () => {
 	const location = useLocation();
 	return (
 		<Layout>
-			<h1 className="mb-4 text-center">Edit user</h1>
+			<h1 className="mb-4 text-center">Profile settings</h1>
 			<CreateUpdateUserForm defaultValues={location.state} />
 		</Layout>
 	);
