@@ -7,7 +7,6 @@ import Quote from "../../components/quote/Quote";
 import Layout from "../../components/ui/Layout";
 
 const DashboardQuotes: FC = () => {
-	const {isMobile} = useMediaQuery(768);
 	const [pageNumber] = useState(1);
 
 	const {data, isLoading} = useQuery(["fetchQuotes", pageNumber], () => API.fetchQuotes(pageNumber), {

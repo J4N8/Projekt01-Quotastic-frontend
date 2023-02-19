@@ -5,7 +5,6 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Navbar: FC = () => {
 	useNavigate();
-	const {isMobile} = useMediaQuery(768);
 	return (
 		<>
 			<header>
