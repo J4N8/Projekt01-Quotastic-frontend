@@ -1,11 +1,9 @@
 import React, {FC} from "react";
 import {Link, NavLink, useNavigate} from "react-router-dom";
 import {routes} from "../../constants/routesConstants";
-import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Navbar: FC = () => {
 	useNavigate();
-	const {isMobile} = useMediaQuery(768);
 	return (
 		<>
 			<header>

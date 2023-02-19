@@ -1,5 +1,4 @@
 import {FC, useState} from "react";
-import useMediaQuery from "hooks/useMediaQuery";
 import {useQuery} from "react-query";
 import * as API from "api/Api";
 import {QuoteType} from "models/quote";
@@ -7,7 +6,6 @@ import Quote from "../../components/quote/Quote";
 import Layout from "../../components/ui/Layout";
 
 const DashboardQuotes: FC = () => {
-	const {isMobile} = useMediaQuery(768);
 	const [pageNumber] = useState(1);
 
 	const {data, isLoading} = useQuery(["fetchQuotes", pageNumber], () => API.fetchQuotes(pageNumber), {
