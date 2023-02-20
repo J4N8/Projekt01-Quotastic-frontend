@@ -6,8 +6,10 @@ import {QuoteType} from "../../models/quote";
 import Quote from "../quote/Quote";
 import {useQueries} from "react-query";
 import * as API from "../../api/Api";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const HomeNotAuthenticated = () => {
+	const {isMobile} = useMediaQuery(768);
 	const navigate = useNavigate();
 	const [pageNumber] = useState(1);
 
@@ -21,7 +23,7 @@ const HomeNotAuthenticated = () => {
 	]);
 	return (
 		<div className="p-2 mb-4 landing-page-noauth">
-			<div className="d-flex">
+			<div className={isMobile ? "" : "d-flex"}>
 				<div className="container-fluid py-4">
 					<h1 className="">Welcome to</h1>
 					<h1 className="orange">Quotastic</h1>
@@ -37,6 +39,7 @@ const HomeNotAuthenticated = () => {
 					<img
 						src={`${process.env.REACT_APP_API_URL}/files/landing_page_quotes.png`}
 						alt="landing page image"
+						width={isMobile ? "100%" : ""}
 					/>
 				</div>
 			</div>

@@ -17,6 +17,7 @@ const Navbar: FC = () => {
 	const [showError, setShowError] = useState(false);
 	const [shown, setShown] = useState(false);
 	const [quoteEdit] = useState(undefined);
+	const [navbarToggle, setNavbarToggle] = useState(false);
 
 	const signout = async () => {
 		const response = await API.signout();
@@ -42,19 +43,23 @@ const Navbar: FC = () => {
 						<Link className="navbar-brand" to={routes.HOME}>
 							<img src="/images/logo.png" alt="SkillUp Mentor" width={123} />
 						</Link>
-						<button
-							className="navbar-toggler"
-							type="button"
-							data-bs-toggle="collapse"
-							data-bs-target="#navbarTogglerDemo02"
-							aria-controls="navbarTogglerDemo02"
-							aria-expanded="false"
-							aria-label="Toggle navigation"
-						>
+						<button className="navbar-toggler" type="button" onClick={() => setNavbarToggle(!navbarToggle)}>
 							<span className="navbar-toggler-icon"></span>
 						</button>
+						{isMobile ? (
+							<Button
+								className="btn component-orange-reverse rounded-circle bi bi-plus-lg"
+								onClick={() => setShown(true)}
+							></Button>
+						) : (
+							""
+						)}
 						<div
-							className="collapse navbar-collapse justify-content-end align-items-center"
+							className={
+								navbarToggle
+									? "navbar-collapse justify-content-end align-items-center"
+									: "collapse navbar-collapse justify-content-end align-items-center"
+							}
 							id="navbarTogglerDemo02"
 						>
 							<ul className="navbar-nav mb-2 mb-lg-0">
@@ -92,7 +97,7 @@ const Navbar: FC = () => {
 								{isMobile ? (
 									<Link
 										className="btn text-decoration-none text-light me-3"
-										to={`${routes.HOME}/users/edit`}
+										to={`${routes.HOME}users/edit`}
 										state={{
 											id: authStore.user?.id,
 											first_name: authStore.user?.first_name,
@@ -143,12 +148,16 @@ const Navbar: FC = () => {
 									</Link>
 								)}
 
-								<li className="nav-item pe-4">
-									<Button
-										className="btn component-orange-reverse rounded-circle bi bi-plus-lg"
-										onClick={() => setShown(true)}
-									></Button>
-								</li>
+								{isMobile ? (
+									""
+								) : (
+									<li className="nav-item pe-4">
+										<Button
+											className="btn component-orange-reverse rounded-circle bi bi-plus-lg pe-4"
+											onClick={() => setShown(true)}
+										></Button>
+									</li>
+								)}
 							</ul>
 						</div>
 					</div>

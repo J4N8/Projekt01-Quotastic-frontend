@@ -6,8 +6,10 @@ import {QuoteType} from "../../models/quote";
 import Quote from "../quote/Quote";
 import {useQueries} from "react-query";
 import * as API from "../../api/Api";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const HomeAuthenticated = () => {
+	const {isMobile} = useMediaQuery(768);
 	const user: UserType = userStorage.getUser();
 	const [pageNumber, setPageNumber] = useState(1);
 
@@ -53,8 +55,8 @@ const HomeAuthenticated = () => {
 					</div>
 				</div>
 			</div>
-			<div className="container d-flex justify-content-center">
-				<div className="quotes w-25">
+			<div className={isMobile ? "container justify-content-center" : "container d-flex justify-content-center"}>
+				<div className={isMobile ? "quotes" : "quotes w-25"}>
 					<h2>Most liked</h2>
 					{sortedScore.isLoading ? (
 						<div>Loading...</div>
@@ -76,7 +78,7 @@ const HomeAuthenticated = () => {
 						</>
 					)}
 				</div>
-				<div className="quotes w-25">
+				<div className={isMobile ? "quotes" : "quotes w-25"}>
 					<h2>Most recent</h2>
 					{sortedRecent.isLoading ? (
 						<div>Loading...</div>
