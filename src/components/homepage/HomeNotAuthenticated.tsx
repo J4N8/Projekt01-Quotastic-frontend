@@ -63,7 +63,7 @@ const HomeNotAuthenticated = () => {
 							) : (
 								<>
 									<div className="d-flex container">
-										<div className="row row-cols-4">
+										<div className={isMobile ? "row row-cols-1" : "row row-cols-4"}>
 											{sortedScore.data?.data.data.map((item: QuoteType, index: number) => (
 												<div className="p-2 col border-orange m-1">
 													<Quote quoteValues={item} key={index} />
