@@ -156,7 +156,7 @@ const Navbar: FC = () => {
 								) : (
 									<li className="nav-item pe-4">
 										<Button
-											className="btn component-orange-reverse rounded-circle bi bi-plus-lg pe-4"
+											className="btn component-orange-reverse rounded-circle bi bi-plus-lg"
 											onClick={() => setShown(true)}
 										></Button>
 									</li>
