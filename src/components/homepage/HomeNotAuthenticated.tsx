@@ -37,7 +37,7 @@ const HomeNotAuthenticated = () => {
 				</div>
 				<div>
 					<img
-						src={`${process.env.REACT_APP_API_URL}/files/landing_page_quotes.png`}
+						src={"/images/landing_page_quotes.png"}
 						alt="landing page image"
 						width={isMobile ? "100%" : ""}
 					/>
