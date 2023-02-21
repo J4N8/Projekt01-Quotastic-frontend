@@ -4,7 +4,7 @@ import {routes} from "../../constants/routesConstants";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Navbar: FC = () => {
-	const {isMobile} = useMediaQuery(768);
+	const {isMobile} = useMediaQuery(992);
 	const [navbarToggle, setNavbarToggle] = useState(false);
 	useNavigate();
 	return (

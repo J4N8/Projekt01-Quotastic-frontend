@@ -7,7 +7,7 @@ import Layout from "../../components/ui/Layout";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 const DashboardQuotes: FC = () => {
-	const {isMobile} = useMediaQuery(768);
+	const {isMobile} = useMediaQuery(992);
 	const [pageNumber] = useState(1);
 
 	const {data, isLoading} = useQuery(["fetchQuotes", pageNumber], () => API.fetchQuotes(pageNumber), {
@@ -30,7 +30,7 @@ const DashboardQuotes: FC = () => {
 							<div className="container">
 								<div className={isMobile ? "row row-cols-1" : "row row-cols-4"}>
 									{data?.data.data.map((item: QuoteType, index: number) => (
-										<div className="p-2 border-1 rounded-2 border-orange m-1">
+										<div className="p-1 col text-break">
 											<Quote quoteValues={item} key={index} />
 										</div>
 									))}

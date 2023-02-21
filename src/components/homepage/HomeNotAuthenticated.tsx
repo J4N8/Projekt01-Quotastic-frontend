@@ -9,7 +9,7 @@ import * as API from "../../api/Api";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 const HomeNotAuthenticated = () => {
-	const {isMobile} = useMediaQuery(768);
+	const {isMobile} = useMediaQuery(992);
 	const navigate = useNavigate();
 	const [pageNumber] = useState(1);
 
@@ -62,10 +62,10 @@ const HomeNotAuthenticated = () => {
 								<p>No quotes found.</p>
 							) : (
 								<>
-									<div className="d-flex container">
+									<div className="d-flex container w-100">
 										<div className={isMobile ? "row row-cols-1" : "row row-cols-4"}>
 											{sortedScore.data?.data.data.map((item: QuoteType, index: number) => (
-												<div className="p-2 col border-orange m-1">
+												<div className="col p-1 text-break">
 													<Quote quoteValues={item} key={index} />
 												</div>
 											))}

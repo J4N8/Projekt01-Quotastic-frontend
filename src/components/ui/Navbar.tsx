@@ -12,7 +12,7 @@ import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Navbar: FC = () => {
 	const navigate = useNavigate();
-	const {isMobile} = useMediaQuery(768);
+	const {isMobile} = useMediaQuery(992);
 	const [apiError, setApiError] = useState("");
 	const [showError, setShowError] = useState(false);
 	const [shown, setShown] = useState(false);

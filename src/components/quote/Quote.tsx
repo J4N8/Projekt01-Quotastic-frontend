@@ -16,7 +16,7 @@ const Quote: FC<Props> = ({quoteValues}) => {
 
 	return (
 		<>
-			<div className="quote d-flex">
+			<div className="quote d-flex border-orange rounded-3">
 				<div className="votes p-2 m-2 text-center">
 					<Button
 						className="btn-vote bi bi-chevron-up btn-none"
@@ -35,9 +35,7 @@ const Quote: FC<Props> = ({quoteValues}) => {
 					></Button>
 				</div>
 				<div>
-					<div>
-						<p>{quoteValues.content}</p>
-					</div>
+					<p className="text-break">{quoteValues.content}</p>
 					<div className="author d-flex">
 						<img
 							className="avatar rounded-circle"

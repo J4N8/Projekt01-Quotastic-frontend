@@ -9,7 +9,7 @@ import * as API from "../../api/Api";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 const HomeAuthenticated = () => {
-	const {isMobile} = useMediaQuery(768);
+	const {isMobile} = useMediaQuery(992);
 	const user: UserType = userStorage.getUser();
 	const [pageNumber, setPageNumber] = useState(1);
 
@@ -55,9 +55,9 @@ const HomeAuthenticated = () => {
 					</div>
 				</div>
 			</div>
-			<div className={isMobile ? "container justify-content-center" : "container d-flex justify-content-center"}>
-				<div className={isMobile ? "quotes" : "quotes w-25"}>
-					<h2>Most liked</h2>
+			<div className={isMobile ? "justify-content-center" : "d-flex justify-content-center"}>
+				<div className="quotes container">
+					<h2 className="text-center">Most liked</h2>
 					{sortedScore.isLoading ? (
 						<div>Loading...</div>
 					) : (
@@ -66,9 +66,9 @@ const HomeAuthenticated = () => {
 								<p>No quotes found.</p>
 							) : (
 								<>
-									<div>
+									<div className={isMobile ? "row row-cols-1" : "row row-cols-2"}>
 										{sortedScore.data?.data.data.map((item: QuoteType, index: number) => (
-											<div className="p-2 border-1 rounded-2 border-orange m-2">
+											<div className="col p-1 text-break">
 												<Quote quoteValues={item} key={index} />
 											</div>
 										))}
@@ -78,8 +78,9 @@ const HomeAuthenticated = () => {
 						</>
 					)}
 				</div>
-				<div className={isMobile ? "quotes" : "quotes w-25"}>
-					<h2>Most recent</h2>
+				<div className="p-2"></div>
+				<div className="quotes container">
+					<h2 className="text-center">Most recent</h2>
 					{sortedRecent.isLoading ? (
 						<div>Loading...</div>
 					) : (
@@ -88,9 +89,9 @@ const HomeAuthenticated = () => {
 								<p>No quotes found.</p>
 							) : (
 								<>
-									<div>
+									<div className={isMobile ? "row row-cols-1" : "row row-cols-2"}>
 										{sortedRecent.data?.data.data.map((item: QuoteType, index: number) => (
-											<div className="p-2 border-1 rounded-2 border-orange m-2">
+											<div className="col p-1 text-break">
 												<Quote quoteValues={item} key={index} />
 											</div>
 										))}
